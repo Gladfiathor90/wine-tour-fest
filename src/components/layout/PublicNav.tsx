@@ -12,7 +12,7 @@ const navItems = [
 
 export function PublicNav() {
   return (
-    <nav className="fixed bottom-0 left-1/2 z-30 w-full max-w-[480px] -translate-x-1/2 border-t border-wine-700/25 bg-cream-50/95 px-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] pt-2 shadow-soft backdrop-blur">
+    <nav className="fixed bottom-0 left-1/2 z-30 w-full max-w-[480px] -translate-x-1/2 border-t border-gold-500/40 bg-wine-900/95 px-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] pt-2 shadow-soft backdrop-blur">
       <div className="grid grid-cols-5 gap-1">
         {navItems.slice(0, 2).map((item) => (
           <NavLink
@@ -22,7 +22,7 @@ export function PublicNav() {
             className={({ isActive }) =>
               [
                 'flex min-h-14 flex-col items-center justify-center gap-1 rounded-md px-1 py-2 text-[11px] font-bold uppercase tracking-[0.04em] transition',
-                isActive ? 'wtf-nav-active bg-wine-700 text-cream-50' : 'text-wine-700 hover:bg-wine-100',
+                isActive ? 'wtf-nav-active bg-gold-500 text-wine-900' : 'text-cream-50 hover:bg-cream-50/10',
               ].join(' ')
             }
           >
@@ -38,7 +38,7 @@ export function PublicNav() {
             className={({ isActive }) =>
               [
                 'flex min-h-14 flex-col items-center justify-center gap-1 rounded-md px-1 py-2 text-[11px] font-bold uppercase tracking-[0.04em] transition',
-                isActive ? 'wtf-nav-active bg-wine-700 text-cream-50' : 'text-wine-700 hover:bg-wine-100',
+                isActive ? 'wtf-nav-active bg-gold-500 text-wine-900' : 'text-cream-50 hover:bg-cream-50/10',
               ].join(' ')
             }
           >

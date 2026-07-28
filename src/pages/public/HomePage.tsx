@@ -4,7 +4,6 @@ import { PublicHeader } from '../../components/common/PublicHeader'
 import { QrScannerButton } from '../../components/common/QrScannerButton'
 import { EventCard } from '../../components/events/EventCard'
 import { NewsCard } from '../../components/news/NewsCard'
-import { imageFallbacks } from '../../data/demoData'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { contentService } from '../../services/contentService'
 import { publicRoutes } from '../../utils/routes'
@@ -31,8 +30,8 @@ export function HomePage() {
     <div className="space-y-7">
       <PublicHeader title="Home" />
 
-      <section className="overflow-hidden rounded-lg bg-white shadow-sm">
-        <img src={imageFallbacks.hero} alt="Calici di vino del Wine Tour Fest" className="h-56 w-full object-cover" />
+      <section className="wtf-brand-card overflow-hidden rounded-lg bg-white shadow-sm">
+        <img src="/images/brand-identity-2026.jpeg" alt="Locandina Wine Tour Fest 2026" className="wtf-brand-poster h-72 w-full object-cover" />
         <div className="space-y-4 p-5">
           <p className="inline-flex items-center gap-2 rounded-md bg-wine-100 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-wine-700">
             <Sparkles className="h-4 w-4" aria-hidden="true" />
@@ -40,8 +39,11 @@ export function HomePage() {
           </p>
           <div>
             <h1 className="text-4xl font-bold leading-tight text-stone-950">{info.eventName}</h1>
+            <p className="mt-2 text-base font-black uppercase tracking-[0.12em] text-gold-700">
+              Vino Musica e Arte
+            </p>
             <p className="mt-2 text-sm font-semibold text-olive-700">
-              {start} - {end} · {info.city}, {info.province}
+              {start} - {end} · {info.city}, {info.province} · Centro Storico
             </p>
             <p className="mt-3 text-base leading-7 text-stone-600">{info.description}</p>
           </div>

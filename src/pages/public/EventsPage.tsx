@@ -25,9 +25,9 @@ export function EventsPage() {
     <div className="space-y-5">
       <PublicHeader title="Programma" />
       <section className="rounded-lg bg-cream-100 p-5 shadow-sm">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-wine-700">Wine Tour Fest</p>
-        <h1 className="mt-2 text-4xl font-black uppercase leading-none text-wine-700">Programma musicale</h1>
-        <p className="mt-3 text-sm font-semibold text-stone-700">Lizzano (TA) · Largo Rosario · Largo Bino · Palco Centrale</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gold-700">Vino Musica e Arte</p>
+        <h1 className="mt-2 text-4xl font-black uppercase leading-none text-wine-900">Programma musicale</h1>
+        <p className="mt-3 text-sm font-semibold text-olive-700">Lizzano (TA) · Centro Storico · 11, 12, 13 agosto 2026</p>
       </section>
 
       <div className="flex gap-2 overflow-x-auto pb-1">
@@ -58,7 +58,7 @@ export function EventsPage() {
                     <Link
                       key={event.id}
                       to={publicRoutes.eventDetail(event.slug)}
-                      className={`block ${isCentral ? 'rounded-sm bg-wine-700 p-3 text-cream-50' : 'text-stone-800'}`}
+                    className={`block ${isCentral ? 'rounded-sm bg-wine-900 p-3 text-cream-50' : 'text-stone-800'}`}
                     >
                       <p className={`text-lg font-light italic leading-none ${isCentral ? 'text-cream-50' : 'text-stone-700'}`}>
                         {event.location} <span className="text-sm not-italic">({event.startTime} - {event.endTime})</span>

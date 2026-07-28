@@ -11,10 +11,10 @@ export function GastronomyPage() {
     <div className="space-y-5">
       <PublicHeader back title="Gastronomia" />
       <section className="rounded-lg bg-cream-100 p-5 shadow-sm">
-        <Utensils className="h-7 w-7 text-wine-700" aria-hidden="true" />
-        <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-wine-700">Menu</p>
-        <h1 className="mt-1 text-4xl font-black uppercase leading-none text-wine-700">Food</h1>
-        <p className="mt-3 text-lg font-semibold text-wine-700">Ristorazione Wine Tour Fest</p>
+        <Utensils className="h-7 w-7 text-gold-700" aria-hidden="true" />
+        <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-gold-700">Menu</p>
+        <h1 className="mt-1 text-4xl font-black uppercase leading-none text-wine-900">Food</h1>
+        <p className="mt-3 text-lg font-semibold text-olive-700">Ristorazione Wine Tour Fest 2026</p>
       </section>
 
       <section className="overflow-hidden rounded-lg border border-wine-700/20 bg-cream-50 shadow-sm">
@@ -35,7 +35,7 @@ export function GastronomyPage() {
         ))}
       </section>
 
-      <section className="rounded-lg bg-wine-700 p-5 text-cream-50 shadow-sm">
+      <section className="rounded-lg bg-wine-900 p-5 text-cream-50 shadow-sm">
         <p className="text-sm uppercase tracking-[0.18em] text-cream-100">Prezzo demo</p>
         <p className="mt-2 text-6xl font-black">€7</p>
         <p className="mt-2 text-sm text-cream-100">Menu gastronomia con acqua inclusa. Dati aggiornabili in futuro dall’area admin.</p>
