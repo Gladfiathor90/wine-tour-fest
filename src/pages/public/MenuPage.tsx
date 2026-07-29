@@ -31,6 +31,14 @@ export function MenuPage() {
           </Link>
         ))}
       </div>
+      <footer className="border-t border-stone-200 pt-5 text-sm text-stone-600">
+        <p className="font-semibold">
+          Progettazione e sviluppo a cura di TarantaTech{' '}
+          <a className="font-bold text-wine-700" href="http://www.tarantatech.it" target="_blank" rel="noreferrer">
+            www.tarantatech.it
+          </a>
+        </p>
+      </footer>
     </div>
   )
 }
