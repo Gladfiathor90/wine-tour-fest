@@ -124,6 +124,12 @@ export function HomePage() {
         <p>Organizzato da Wine Tour Fest · Social: Instagram e Facebook</p>
         <Link className="inline-flex min-h-11 items-center font-semibold text-wine-700" to={publicRoutes.privacy}>Privacy</Link>
         <p>© 2026 Wine Tour Fest</p>
+        <p>
+          Progettazione e sviluppo{' '}
+          <a className="font-semibold text-wine-700" href="https://tarnatatech.it" target="_blank" rel="noreferrer">
+            tarnatatech.it
+          </a>
+        </p>
       </footer>
     </div>
   )
