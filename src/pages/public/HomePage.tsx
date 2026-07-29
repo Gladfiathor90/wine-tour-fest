@@ -123,11 +123,13 @@ export function HomePage() {
         <p>{info.email} · {info.phone}</p>
         <p>Organizzato da Wine Tour Fest · Social: Instagram e Facebook</p>
         <Link className="inline-flex min-h-11 items-center font-semibold text-wine-700" to={publicRoutes.privacy}>Privacy</Link>
-        <p>© 2026 Wine Tour Fest</p>
-        <p className="font-semibold">Progettazione e sviluppo a cura di TarantaTech</p>
-        <a className="inline-flex min-h-11 items-center font-bold text-wine-700" href="http://www.tarantatech.it" target="_blank" rel="noreferrer">
-          www.tarantatech.it
-        </a>
+        <p className="pb-4">© 2026 Wine Tour Fest</p>
+        <p className="font-semibold">
+          Progettazione e sviluppo a cura di TarantaTech{' '}
+          <a className="font-bold text-wine-700" href="http://www.tarantatech.it" target="_blank" rel="noreferrer">
+            www.tarantatech.it
+          </a>
+        </p>
       </footer>
     </div>
   )
