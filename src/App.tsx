@@ -6,6 +6,7 @@ import { PublicLayout } from './layouts/PublicLayout'
 import { AdminDashboardPage } from './pages/admin/AdminDashboardPage'
 import { AdminLoginPage } from './pages/admin/AdminLoginPage'
 import { AdminSectionPage } from './pages/admin/AdminSectionPage'
+import { AdminWineriesPage } from './pages/admin/AdminWineriesPage'
 import { EventDetailPage } from './pages/public/EventDetailPage'
 import { EventsPage } from './pages/public/EventsPage'
 import { GamePage } from './pages/public/GamePage'
@@ -51,9 +52,9 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <AdminDashboardPage /> },
       { path: 'login', element: <AdminLoginPage /> },
-      { path: 'cantine', element: <AdminSectionPage /> },
-      { path: 'cantine/nuova', element: <AdminSectionPage /> },
-      { path: 'cantine/:id', element: <AdminSectionPage /> },
+      { path: 'cantine', element: <AdminWineriesPage /> },
+      { path: 'cantine/nuova', element: <AdminWineriesPage /> },
+      { path: 'cantine/:id', element: <AdminWineriesPage /> },
       { path: 'eventi', element: <AdminSectionPage /> },
       { path: 'eventi/nuovo', element: <AdminSectionPage /> },
       { path: 'eventi/:id', element: <AdminSectionPage /> },

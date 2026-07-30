@@ -1,32 +1,65 @@
 import { ExternalLink, Globe, MapPin, Phone } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { EmptyState } from '../../components/common/EmptyState'
 import { PublicHeader } from '../../components/common/PublicHeader'
 import { QrCodeBox } from '../../components/common/QrCodeBox'
-import { EventCard } from '../../components/events/EventCard'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { contentService } from '../../services/contentService'
+import type { Winery } from '../../types/content'
 import { sharePage } from '../../utils/share'
 import { publicRoutes } from '../../utils/routes'
 
 export function WineryDetailPage() {
   const { slug } = useParams()
-  const winery = contentService.wineries.bySlug(slug)
+  const [winery, setWinery] = useState<Winery | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
   const [expanded, setExpanded] = useState(false)
   const [shareMessage, setShareMessage] = useState('')
   usePageMeta(winery?.name ?? 'Cantina', winery?.shortDescription ?? 'Scheda cantina Wine Tour Fest.')
 
-  if (!winery) {
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadWinery() {
+      try {
+        setLoading(true)
+        setError('')
+        const result = await contentService.wineries.getBySlug(slug)
+        if (!cancelled) setWinery(result)
+      } catch {
+        if (!cancelled) setError('Non riesco a caricare questa cantina da Supabase.')
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    }
+
+    void loadWinery()
+
+    return () => {
+      cancelled = true
+    }
+  }, [slug])
+
+  if (loading) {
     return (
       <div className="space-y-4">
         <PublicHeader back title="Cantina" />
-        <EmptyState icon={MapPin} title="Cantina non trovata" description="Questo QR o indirizzo non corrisponde a una cantina pubblicata." />
+        <p className="rounded-lg bg-white p-5 text-sm font-semibold text-stone-600 shadow-sm">Caricamento cantina...</p>
       </div>
     )
   }
 
-  const linkedEvents = contentService.events.byWineryId(winery.id)
+  if (error || !winery) {
+    return (
+      <div className="space-y-4">
+        <PublicHeader back title="Cantina" />
+        <EmptyState icon={MapPin} title="Cantina non trovata" description={error || 'Questa cantina non è disponibile o non è pubblicata.'} />
+      </div>
+    )
+  }
+
   const quickActions = [
     winery.phone ? { label: 'Chiama', href: `tel:${winery.phone}`, icon: Phone } : null,
     { label: 'Indicazioni', href: winery.googleMapsUrl, icon: MapPin },
@@ -92,11 +125,6 @@ export function WineryDetailPage() {
         <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-2 min-[700px]:-mx-6 min-[700px]:px-6">
           {winery.gallery.map((image) => <img key={image} src={image} alt="" className="h-40 min-w-[78%] rounded-lg object-cover" loading="lazy" />)}
         </div>
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-xl font-bold text-stone-950">Eventi collegati</h2>
-        {linkedEvents.length ? linkedEvents.map((event) => <EventCard key={event.id} event={event} />) : <p className="text-sm text-stone-600">Nessun evento collegato nei dati demo.</p>}
       </section>
 
       <QrCodeBox url={publicRoutes.wineryDetail(winery.slug)} title="QR Code cantina" />

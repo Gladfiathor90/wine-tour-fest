@@ -2,7 +2,89 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
 export type Database = {
   public: {
-    Tables: Record<string, never>
+    Tables: {
+      wineries: {
+        Row: {
+          id: string
+          name: string
+          slug: string
+          short_description: string | null
+          description: string | null
+          logo_url: string | null
+          cover_image_url: string | null
+          gallery_urls: string[]
+          address: string | null
+          city: string | null
+          province: string | null
+          latitude: number | null
+          longitude: number | null
+          phone: string | null
+          email: string | null
+          website: string | null
+          facebook: string | null
+          instagram: string | null
+          opening_hours: string | null
+          tastings: string | null
+          display_order: number
+          published: boolean
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          slug: string
+          short_description?: string | null
+          description?: string | null
+          logo_url?: string | null
+          cover_image_url?: string | null
+          gallery_urls?: string[]
+          address?: string | null
+          city?: string | null
+          province?: string | null
+          latitude?: number | null
+          longitude?: number | null
+          phone?: string | null
+          email?: string | null
+          website?: string | null
+          facebook?: string | null
+          instagram?: string | null
+          opening_hours?: string | null
+          tastings?: string | null
+          display_order?: number
+          published?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          slug?: string
+          short_description?: string | null
+          description?: string | null
+          logo_url?: string | null
+          cover_image_url?: string | null
+          gallery_urls?: string[]
+          address?: string | null
+          city?: string | null
+          province?: string | null
+          latitude?: number | null
+          longitude?: number | null
+          phone?: string | null
+          email?: string | null
+          website?: string | null
+          facebook?: string | null
+          instagram?: string | null
+          opening_hours?: string | null
+          tastings?: string | null
+          display_order?: number
+          published?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+    }
     Views: Record<string, never>
     Functions: Record<string, never>
     Enums: Record<string, never>
