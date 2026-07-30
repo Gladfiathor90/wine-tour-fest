@@ -27,7 +27,7 @@ Copia `.env.example` in `.env.local` quando saranno disponibili le credenziali r
 
 ```bash
 VITE_SUPABASE_URL=
-VITE_SUPABASE_ANON_KEY=
+VITE_SUPABASE_PUBLISHABLE_KEY=
 ```
 
 In questa fase Supabase e predisposto ma non collegato a dati reali.

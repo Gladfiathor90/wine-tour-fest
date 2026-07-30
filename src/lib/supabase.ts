@@ -12,15 +12,15 @@ export type Database = {
 
 type SupabaseConfigStatus = {
   configured: boolean
-  missingEnvVars: Array<'VITE_SUPABASE_URL' | 'VITE_SUPABASE_ANON_KEY'>
+  missingEnvVars: Array<'VITE_SUPABASE_URL' | 'VITE_SUPABASE_PUBLISHABLE_KEY'>
 }
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL?.trim()
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim()
+const supabasePublishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY?.trim()
 
 const missingEnvVars: SupabaseConfigStatus['missingEnvVars'] = [
   ...(!supabaseUrl ? ['VITE_SUPABASE_URL' as const] : []),
-  ...(!supabaseAnonKey ? ['VITE_SUPABASE_ANON_KEY' as const] : []),
+  ...(!supabasePublishableKey ? ['VITE_SUPABASE_PUBLISHABLE_KEY' as const] : []),
 ]
 
 export const supabaseConfigStatus: SupabaseConfigStatus = {
@@ -31,7 +31,7 @@ export const supabaseConfigStatus: SupabaseConfigStatus = {
 export const isSupabaseConfigured = supabaseConfigStatus.configured
 
 export const supabase: SupabaseClient<Database> | null = isSupabaseConfigured
-  ? createClient<Database>(supabaseUrl, supabaseAnonKey)
+  ? createClient<Database>(supabaseUrl, supabasePublishableKey)
   : null
 
 export function verifySupabaseClientConfig(): SupabaseConfigStatus {
