@@ -1,6 +1,7 @@
 import { isSupabaseConfigured, supabase, type Database } from '../lib/supabase'
 import { wineries } from '../data/demoData'
 import type { Winery } from '../types/content'
+import { removePublicFile, uploadPublicImage } from './storageService'
 
 type WineryRow = Database['public']['Tables']['wineries']['Row']
 type WineryInsert = Database['public']['Tables']['wineries']['Insert']
@@ -213,19 +214,11 @@ export const wineryService = {
 
   uploadImage: async (file: File, folder: string): Promise<string> => {
     const client = assertSupabase()
-    const extension = file.name.split('.').pop()?.toLowerCase() || 'jpg'
-    const safeName = file.name
-      .replace(/\.[^.]+$/, '')
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '')
-    const path = `${folder}/${Date.now()}-${safeName || 'image'}.${extension}`
-    const { error } = await client.storage.from('wineries').upload(path, file, { upsert: true })
-    if (error) throw error
+    return uploadPublicImage(client, 'wineries', file, folder)
+  },
 
-    const { data } = client.storage.from('wineries').getPublicUrl(path)
-    return data.publicUrl
+  removeImage: async (url: string): Promise<void> => {
+    const client = assertSupabase()
+    await removePublicFile(client, 'wineries', url)
   },
 }

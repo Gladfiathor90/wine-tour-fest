@@ -242,16 +242,67 @@ export function AdminWineriesPage() {
         </div>
         <div className="grid gap-3 rounded-md border border-stone-200 p-3">
           <UploadField label="Logo" uploading={uploading === 'logoUrl'} onChange={(event) => uploadFile(event, 'logoUrl')} />
-          {form.logoUrl ? <img src={form.logoUrl} alt="" className="mx-auto h-20 w-20 rounded-md object-contain" /> : null}
+          {form.logoUrl ? (
+            <div className="space-y-2">
+              <img src={form.logoUrl} alt="" className="mx-auto h-20 w-20 rounded-md object-contain" />
+              <button
+                type="button"
+                onClick={async () => {
+                  const currentUrl = form.logoUrl
+                  updateField('logoUrl', '')
+                  try {
+                    await contentService.wineries.removeImage(currentUrl)
+                  } catch {
+                    setError('Logo scollegato, ma rimozione dal bucket non riuscita.')
+                  }
+                }}
+                className="min-h-10 w-full rounded-md bg-red-50 px-3 text-xs font-semibold text-red-700"
+              >
+                Rimuovi logo
+              </button>
+            </div>
+          ) : null}
           <UploadField label="Copertina" uploading={uploading === 'coverImageUrl'} onChange={(event) => uploadFile(event, 'coverImageUrl')} />
-          {form.coverImageUrl ? <img src={form.coverImageUrl} alt="" className="h-36 w-full rounded-md object-cover" /> : null}
+          {form.coverImageUrl ? (
+            <div className="space-y-2">
+              <img src={form.coverImageUrl} alt="" className="h-36 w-full rounded-md object-cover" />
+              <button
+                type="button"
+                onClick={async () => {
+                  const currentUrl = form.coverImageUrl
+                  updateField('coverImageUrl', '')
+                  try {
+                    await contentService.wineries.removeImage(currentUrl)
+                  } catch {
+                    setError('Copertina scollegata, ma rimozione dal bucket non riuscita.')
+                  }
+                }}
+                className="min-h-10 w-full rounded-md bg-red-50 px-3 text-xs font-semibold text-red-700"
+              >
+                Rimuovi copertina
+              </button>
+            </div>
+          ) : null}
           <UploadField label="Aggiungi immagine galleria" uploading={uploading === 'gallery'} onChange={(event) => uploadFile(event, 'gallery')} />
           {form.gallery.length ? (
             <div className="grid grid-cols-2 gap-2">
               {form.gallery.map((image) => (
                 <div key={image} className="space-y-2">
                   <img src={image} alt="" className="h-28 w-full rounded-md object-cover" />
-                  <button type="button" onClick={() => updateField('gallery', form.gallery.filter((item) => item !== image))} className="min-h-10 w-full rounded-md bg-red-50 px-3 text-xs font-semibold text-red-700">Rimuovi</button>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      updateField('gallery', form.gallery.filter((item) => item !== image))
+                      try {
+                        await contentService.wineries.removeImage(image)
+                      } catch {
+                        setError('Immagine scollegata, ma rimozione dal bucket non riuscita.')
+                      }
+                    }}
+                    className="min-h-10 w-full rounded-md bg-red-50 px-3 text-xs font-semibold text-red-700"
+                  >
+                    Rimuovi
+                  </button>
                 </div>
               ))}
             </div>

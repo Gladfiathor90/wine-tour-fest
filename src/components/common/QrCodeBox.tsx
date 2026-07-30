@@ -11,7 +11,7 @@ export function QrCodeBox({ url, title = 'QR Code pagina' }: QrCodeBoxProps) {
   return (
     <aside className="rounded-lg border border-stone-200 bg-white p-4 shadow-sm">
       <h2 className="text-base font-semibold text-stone-950">{title}</h2>
-      <p className="mt-1 text-sm text-stone-600">Apre questa pagina informativa. Non registra check-in e non assegna punti.</p>
+      <p className="mt-1 text-sm text-stone-600">Apre la pagina di check-in della cantina e registra la visita.</p>
       <div className="mt-4 grid place-items-center rounded-md bg-cream-50 p-4">
         <QRCodeSVG value={fullUrl} size={150} level="M" />
       </div>

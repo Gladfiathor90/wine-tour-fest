@@ -76,6 +76,15 @@ export type Sponsor = {
   level: SponsorLevel
   displayOrder: number
   active: boolean
+  createdAt?: string
+  updatedAt?: string
+}
+
+export type WineryCheckIn = {
+  id: string
+  wineryId: string
+  visitorKey: string
+  createdAt: string
 }
 
 export type MapPoint = {

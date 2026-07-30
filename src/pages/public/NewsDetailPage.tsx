@@ -1,5 +1,5 @@
 import { Newspaper } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { EmptyState } from '../../components/common/EmptyState'
 import { PublicHeader } from '../../components/common/PublicHeader'
@@ -9,15 +9,49 @@ import { sharePage } from '../../utils/share'
 
 export function NewsDetailPage() {
   const { slug } = useParams()
-  const item = contentService.news.bySlug(slug)
+  const [item, setItem] = useState<Awaited<ReturnType<typeof contentService.news.getBySlug>>>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
   const [shareMessage, setShareMessage] = useState('')
   usePageMeta(item?.title ?? 'News', item?.excerpt ?? 'News Wine Tour Fest.')
 
-  if (!item) {
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadNews() {
+      try {
+        setLoading(true)
+        setError('')
+        const result = await contentService.news.getBySlug(slug)
+        if (!cancelled) setItem(result)
+      } catch {
+        if (!cancelled) setError('Non riesco a caricare questa news da Supabase.')
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    }
+
+    void loadNews()
+
+    return () => {
+      cancelled = true
+    }
+  }, [slug])
+
+  if (loading) {
     return (
       <div className="space-y-4">
         <PublicHeader back title="News" />
-        <EmptyState icon={Newspaper} title="News non trovata" description="Questa comunicazione non e disponibile." />
+        <p className="rounded-lg bg-white p-5 text-sm font-semibold text-stone-600 shadow-sm">Caricamento news...</p>
+      </div>
+    )
+  }
+
+  if (error || !item) {
+    return (
+      <div className="space-y-4">
+        <PublicHeader back title="News" />
+        <EmptyState icon={Newspaper} title="News non trovata" description={error || 'Questa comunicazione non è disponibile.'} />
       </div>
     )
   }

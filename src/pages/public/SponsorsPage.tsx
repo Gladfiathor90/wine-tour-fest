@@ -1,19 +1,50 @@
+import { Trophy } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { EmptyState } from '../../components/common/EmptyState'
 import { PublicHeader } from '../../components/common/PublicHeader'
 import { SectionHeader } from '../../components/common/SectionHeader'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { contentService } from '../../services/contentService'
-import type { SponsorLevel } from '../../types/content'
+import type { Sponsor, SponsorLevel } from '../../types/content'
 
 const levels: SponsorLevel[] = ['Main sponsor', 'Partner', 'Sponsor', 'Patrocini', 'Associazioni']
 
 export function SponsorsPage() {
-  const sponsors = contentService.sponsors.demoList()
+  const [sponsors, setSponsors] = useState<Sponsor[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
   usePageMeta('Sponsor', 'Sponsor e partner Wine Tour Fest.')
+
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadSponsors() {
+      try {
+        setLoading(true)
+        setError('')
+        const result = await contentService.sponsors.getPublished()
+        if (!cancelled) setSponsors(result)
+      } catch {
+        if (!cancelled) setError('Non riesco a caricare gli sponsor da Supabase.')
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    }
+
+    void loadSponsors()
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   return (
     <div className="space-y-5">
       <PublicHeader back title="Sponsor" />
       <SectionHeader eyebrow="Sponsor" title="Sponsor e partner" description="Loghi proporzionati e ordinati per livello." />
+      {loading ? <p className="rounded-lg bg-white p-5 text-sm font-semibold text-stone-600 shadow-sm">Caricamento sponsor...</p> : null}
+      {error ? <EmptyState icon={Trophy} title="Sponsor non disponibili" description={error} /> : null}
+      {!loading && !error && !sponsors.length ? <EmptyState icon={Trophy} title="Nessuno sponsor pubblicato" description="I loghi saranno visibili appena pubblicati dall'organizzazione." /> : null}
       {levels.map((level) => {
         const group = sponsors.filter((sponsor) => sponsor.level === level)
         if (!group.length) return null

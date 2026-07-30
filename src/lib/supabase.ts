@@ -84,6 +84,166 @@ export type Database = {
         }
         Relationships: []
       }
+      program_items: {
+        Row: {
+          id: string
+          title: string
+          slug: string
+          description: string | null
+          event_date: string | null
+          event_time: string | null
+          location: string | null
+          category: string | null
+          image_url: string | null
+          winery_id: string | null
+          published: boolean
+          display_order: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          title: string
+          slug: string
+          description?: string | null
+          event_date?: string | null
+          event_time?: string | null
+          location?: string | null
+          category?: string | null
+          image_url?: string | null
+          winery_id?: string | null
+          published?: boolean
+          display_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          slug?: string
+          description?: string | null
+          event_date?: string | null
+          event_time?: string | null
+          location?: string | null
+          category?: string | null
+          image_url?: string | null
+          winery_id?: string | null
+          published?: boolean
+          display_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'program_items_winery_id_fkey'
+            columns: ['winery_id']
+            isOneToOne: false
+            referencedRelation: 'wineries'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      news: {
+        Row: {
+          id: string
+          title: string
+          slug: string
+          cover_url: string | null
+          content: string | null
+          published_date: string | null
+          published: boolean
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          title: string
+          slug: string
+          cover_url?: string | null
+          content?: string | null
+          published_date?: string | null
+          published?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          slug?: string
+          cover_url?: string | null
+          content?: string | null
+          published_date?: string | null
+          published?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      sponsors: {
+        Row: {
+          id: string
+          name: string
+          logo_url: string | null
+          link_url: string | null
+          category: string | null
+          display_order: number
+          published: boolean
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          logo_url?: string | null
+          link_url?: string | null
+          category?: string | null
+          display_order?: number
+          published?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          logo_url?: string | null
+          link_url?: string | null
+          category?: string | null
+          display_order?: number
+          published?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      winery_checkins: {
+        Row: {
+          id: string
+          winery_id: string
+          visitor_key: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          winery_id: string
+          visitor_key: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          winery_id?: string
+          visitor_key?: string
+          created_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'winery_checkins_winery_id_fkey'
+            columns: ['winery_id']
+            isOneToOne: false
+            referencedRelation: 'wineries'
+            referencedColumns: ['id']
+          },
+        ]
+      }
     }
     Views: Record<string, never>
     Functions: Record<string, never>

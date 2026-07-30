@@ -4,8 +4,12 @@ import { SplashScreen } from './components/common/SplashScreen'
 import { AdminLayout } from './layouts/AdminLayout'
 import { PublicLayout } from './layouts/PublicLayout'
 import { AdminDashboardPage } from './pages/admin/AdminDashboardPage'
+import { AdminEventsPage } from './pages/admin/AdminEventsPage'
 import { AdminLoginPage } from './pages/admin/AdminLoginPage'
+import { AdminNewsPage } from './pages/admin/AdminNewsPage'
+import { AdminQrPage } from './pages/admin/AdminQrPage'
 import { AdminSectionPage } from './pages/admin/AdminSectionPage'
+import { AdminSponsorsPage } from './pages/admin/AdminSponsorsPage'
 import { AdminWineriesPage } from './pages/admin/AdminWineriesPage'
 import { EventDetailPage } from './pages/public/EventDetailPage'
 import { EventsPage } from './pages/public/EventsPage'
@@ -20,6 +24,7 @@ import { MenuPage } from './pages/public/MenuPage'
 import { PrivacyPage } from './pages/public/PrivacyPage'
 import { SponsorsPage } from './pages/public/SponsorsPage'
 import { WineriesPage } from './pages/public/WineriesPage'
+import { WineryCheckInPage } from './pages/public/WineryCheckInPage'
 import { WineryDetailPage } from './pages/public/WineryDetailPage'
 import { adminRoutes, publicRoutes } from './utils/routes'
 
@@ -32,6 +37,7 @@ const router = createBrowserRouter([
       { path: publicRoutes.home, element: <HomePage /> },
       { path: publicRoutes.wineries, element: <WineriesPage /> },
       { path: '/cantine/:slug', element: <WineryDetailPage /> },
+      { path: '/check-in/:slug', element: <WineryCheckInPage /> },
       { path: publicRoutes.events, element: <EventsPage /> },
       { path: '/eventi/:slug', element: <EventDetailPage /> },
       { path: publicRoutes.news, element: <NewsPage /> },
@@ -55,14 +61,17 @@ const router = createBrowserRouter([
       { path: 'cantine', element: <AdminWineriesPage /> },
       { path: 'cantine/nuova', element: <AdminWineriesPage /> },
       { path: 'cantine/:id', element: <AdminWineriesPage /> },
-      { path: 'eventi', element: <AdminSectionPage /> },
-      { path: 'eventi/nuovo', element: <AdminSectionPage /> },
-      { path: 'eventi/:id', element: <AdminSectionPage /> },
-      { path: 'news', element: <AdminSectionPage /> },
-      { path: 'news/nuova', element: <AdminSectionPage /> },
-      { path: 'news/:id', element: <AdminSectionPage /> },
+      { path: 'eventi', element: <AdminEventsPage /> },
+      { path: 'eventi/nuovo', element: <AdminEventsPage /> },
+      { path: 'eventi/:id', element: <AdminEventsPage /> },
+      { path: 'news', element: <AdminNewsPage /> },
+      { path: 'news/nuova', element: <AdminNewsPage /> },
+      { path: 'news/:id', element: <AdminNewsPage /> },
       { path: 'mappa', element: <AdminSectionPage /> },
-      { path: 'sponsor', element: <AdminSectionPage /> },
+      { path: 'sponsor', element: <AdminSponsorsPage /> },
+      { path: 'sponsor/nuovo', element: <AdminSponsorsPage /> },
+      { path: 'sponsor/:id', element: <AdminSponsorsPage /> },
+      { path: 'qr', element: <AdminQrPage /> },
       { path: 'informazioni', element: <AdminSectionPage /> },
       { path: 'gioco', element: <AdminSectionPage /> },
       { path: 'gastronomia', element: <AdminSectionPage /> },

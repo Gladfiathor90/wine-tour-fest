@@ -1,29 +1,71 @@
 import { CalendarDays, Clock, ExternalLink, MapPin } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { EmptyState } from '../../components/common/EmptyState'
 import { PublicHeader } from '../../components/common/PublicHeader'
-import { QrCodeBox } from '../../components/common/QrCodeBox'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { contentService } from '../../services/contentService'
+import type { FestivalEvent, Winery } from '../../types/content'
 import { publicRoutes } from '../../utils/routes'
 import { sharePage } from '../../utils/share'
 
 export function EventDetailPage() {
   const { slug } = useParams()
-  const event = contentService.events.bySlug(slug)
-  const winery = contentService.wineries.byId(event?.wineryId)
+  const [event, setEvent] = useState<FestivalEvent | null>(null)
+  const [winery, setWinery] = useState<Winery | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
   const [shareMessage, setShareMessage] = useState('')
   usePageMeta(event?.title ?? 'Evento', event?.shortDescription ?? 'Dettaglio evento Wine Tour Fest.')
 
-  if (!event) {
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadEvent() {
+      try {
+        setLoading(true)
+        setError('')
+        const result = await contentService.events.getBySlug(slug)
+        if (cancelled) return
+        setEvent(result)
+        if (result?.wineryId) {
+          const linkedWinery = await contentService.wineries.getById(result.wineryId)
+          if (!cancelled) setWinery(linkedWinery)
+        } else {
+          setWinery(null)
+        }
+      } catch {
+        if (!cancelled) setError('Non riesco a caricare questo evento da Supabase.')
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    }
+
+    void loadEvent()
+
+    return () => {
+      cancelled = true
+    }
+  }, [slug])
+
+  if (loading) {
     return (
       <div className="space-y-4">
         <PublicHeader back title="Evento" />
-        <EmptyState icon={CalendarDays} title="Evento non trovato" description="Questa pagina evento non e disponibile nei dati demo." />
+        <p className="rounded-lg bg-white p-5 text-sm font-semibold text-stone-600 shadow-sm">Caricamento evento...</p>
       </div>
     )
   }
+
+  if (error || !event) {
+    return (
+      <div className="space-y-4">
+        <PublicHeader back title="Evento" />
+        <EmptyState icon={CalendarDays} title="Evento non trovato" description={error || 'Questo evento non è disponibile o non è pubblicato.'} />
+      </div>
+    )
+  }
+
   const currentEvent = event
 
   async function handleShare() {
@@ -42,24 +84,21 @@ export function EventDetailPage() {
       </section>
       <section className="grid gap-3">
         <div className="rounded-lg bg-white p-4 shadow-sm"><CalendarDays className="h-5 w-5 text-wine-700" /><p className="mt-2 font-semibold">{currentEvent.startDate}</p></div>
-        <div className="rounded-lg bg-white p-4 shadow-sm"><Clock className="h-5 w-5 text-wine-700" /><p className="mt-2 font-semibold">{currentEvent.startTime} - {currentEvent.endTime}</p></div>
+        <div className="rounded-lg bg-white p-4 shadow-sm"><Clock className="h-5 w-5 text-wine-700" /><p className="mt-2 font-semibold">{currentEvent.startTime}{currentEvent.endTime ? ` - ${currentEvent.endTime}` : ''}</p></div>
         <div className="rounded-lg bg-white p-4 shadow-sm"><MapPin className="h-5 w-5 text-wine-700" /><p className="mt-2 font-semibold">{currentEvent.location}</p></div>
       </section>
-      <section className="rounded-lg bg-white p-5 shadow-sm">
-        <h2 className="text-xl font-bold text-stone-950">Informazioni aggiuntive</h2>
-        <p className="mt-3 text-sm text-stone-600">Stato: {currentEvent.status}. {currentEvent.bookingRequired ? currentEvent.bookingInfo : 'Prenotazione non richiesta.'}</p>
-        {winery ? <p className="mt-2 text-sm text-stone-600">Cantina associata: {winery.name}</p> : null}
-        <div className="mt-5 grid gap-3">
-          {winery ? (
+      {winery ? (
+        <section className="rounded-lg bg-white p-5 shadow-sm">
+          <h2 className="text-xl font-bold text-stone-950">Cantina collegata</h2>
+          <p className="mt-2 text-sm text-stone-600">{winery.name}</p>
+          <div className="mt-5 grid gap-3">
             <a href={winery.googleMapsUrl} target="_blank" rel="noreferrer" className="wtf-button-primary inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-wine-700 px-4 text-sm font-semibold text-white">
               <ExternalLink className="h-4 w-4" /> Indicazioni
             </a>
-          ) : null}
-          {winery ? <Link to={publicRoutes.wineryDetail(winery.slug)} className="wtf-button-primary inline-flex min-h-12 items-center justify-center rounded-md bg-wine-700 px-4 text-sm font-semibold text-white">Scopri la cantina</Link> : null}
-          {currentEvent.externalUrl ? <a href={currentEvent.externalUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-md bg-white px-4 text-sm font-semibold text-wine-700">Link esterno</a> : null}
-        </div>
-      </section>
-      <QrCodeBox url={publicRoutes.eventDetail(currentEvent.slug)} title="QR Code evento" />
+            <Link to={publicRoutes.wineryDetail(winery.slug)} className="wtf-button-primary inline-flex min-h-12 items-center justify-center rounded-md bg-wine-700 px-4 text-sm font-semibold text-white">Scopri la cantina</Link>
+          </div>
+        </section>
+      ) : null}
     </div>
   )
 }

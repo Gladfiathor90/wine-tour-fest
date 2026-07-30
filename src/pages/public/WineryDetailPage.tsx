@@ -127,7 +127,7 @@ export function WineryDetailPage() {
         </div>
       </section>
 
-      <QrCodeBox url={publicRoutes.wineryDetail(winery.slug)} title="QR Code cantina" />
+      <QrCodeBox url={publicRoutes.wineryCheckIn(winery.slug)} title="QR Code check-in" />
 
       <Link className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-wine-700" to={publicRoutes.wineries}>
         Torna alle cantine
