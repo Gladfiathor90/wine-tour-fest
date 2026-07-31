@@ -257,8 +257,11 @@ type SupabaseConfigStatus = {
   missingEnvVars: Array<'VITE_SUPABASE_URL' | 'VITE_SUPABASE_PUBLISHABLE_KEY'>
 }
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL?.trim()
-const supabasePublishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY?.trim()
+const fallbackSupabaseUrl = 'https://vjjuoobjpckhqdhhlmrr.supabase.co'
+const fallbackSupabasePublishableKey = 'sb_publishable_bjvqwvX2L2VgBBCOU23UiQ_Yie_0_tN'
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL?.trim() || fallbackSupabaseUrl
+const supabasePublishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY?.trim() || fallbackSupabasePublishableKey
 
 const missingEnvVars: SupabaseConfigStatus['missingEnvVars'] = [
   ...(!supabaseUrl ? ['VITE_SUPABASE_URL' as const] : []),
