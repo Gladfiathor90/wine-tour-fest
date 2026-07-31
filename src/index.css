@@ -131,6 +131,14 @@ input {
   color: #10283a !important;
 }
 
+.wtf-public-app .wtf-program-page .text-left {
+  text-align: left !important;
+}
+
+.wtf-public-app .wtf-program-page .justify-between {
+  justify-content: space-between !important;
+}
+
 .wtf-brand-card {
   background: #f7f1e5;
 }

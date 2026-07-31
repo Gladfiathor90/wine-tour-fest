@@ -55,6 +55,19 @@ export function decodeEventTime(value: string | null | undefined) {
   return { startTime, endTime }
 }
 
+function sortProgramRows(rows: ProgramItemRow[]) {
+  return [...rows].sort((a, b) => {
+    const aTime = decodeEventTime(a.event_time).startTime
+    const bTime = decodeEventTime(b.event_time).startTime
+    return (
+      (a.event_date ?? '').localeCompare(b.event_date ?? '') ||
+      scheduleTimeValue(aTime) - scheduleTimeValue(bTime) ||
+      a.display_order - b.display_order ||
+      a.title.localeCompare(b.title)
+    )
+  })
+}
+
 function mapRow(row: ProgramItemRow): FestivalEvent {
   const { startTime, endTime } = decodeEventTime(row.event_time)
   return {
@@ -121,7 +134,7 @@ export const eventService = {
       .order('display_order', { ascending: true })
 
     if (error) throw error
-    return data.map(mapRow)
+    return sortProgramRows(data).map(mapRow)
   },
 
   getAll: async (): Promise<FestivalEvent[]> => {
@@ -134,7 +147,7 @@ export const eventService = {
       .order('display_order', { ascending: true })
 
     if (error) throw error
-    return data.map(mapRow)
+    return sortProgramRows(data).map(mapRow)
   },
 
   getBySlug: async (slug: string | undefined): Promise<FestivalEvent | null> => {
