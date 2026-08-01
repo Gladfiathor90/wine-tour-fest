@@ -6,7 +6,7 @@ import { newsService } from './newsService'
 import { sponsorService } from './sponsorService'
 import { checkInService } from './checkInService'
 import { wineryService } from './wineryService'
-import { gastronomyDays } from '../data/demoData'
+import { gastronomyDays, oliveMills } from '../data/demoData'
 
 export const contentService = {
   wineries: wineryService,
@@ -19,5 +19,9 @@ export const contentService = {
   gameSettings: gameSettingsService,
   gastronomy: {
     demoList: () => gastronomyDays,
+  },
+  oliveMills: {
+    demoList: () => oliveMills.filter((mill) => mill.published),
+    getBySlug: (slug: string | undefined) => oliveMills.find((mill) => mill.slug === slug && mill.published) ?? null,
   },
 }

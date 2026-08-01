@@ -1,4 +1,4 @@
-import { CalendarDays, Gamepad2, Info, Mail, MapPinned, MessageCircle, Newspaper, Shield, Trophy, Utensils } from 'lucide-react'
+import { CalendarDays, Droplets, Gamepad2, Grape, Info, Mail, MapPinned, MessageCircle, Newspaper, Shield, Trophy, Utensils } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Logo } from '../../components/common/Logo'
 import { usePageMeta } from '../../hooks/usePageMeta'
@@ -8,6 +8,8 @@ import { publicRoutes } from '../../utils/routes'
 const quickLinks = [
   { label: 'Programma', path: publicRoutes.events, icon: CalendarDays },
   { label: 'Gastronomia', path: publicRoutes.gastronomy, icon: Utensils },
+  { label: 'Cantine', path: publicRoutes.wineries, icon: Grape },
+  { label: 'Frantoi', path: publicRoutes.oliveMills, icon: Droplets },
   { label: 'News', path: publicRoutes.news, icon: Newspaper },
   { label: 'Mappa', path: publicRoutes.map, icon: MapPinned },
   { label: 'Partners', path: publicRoutes.partners, icon: Trophy },
@@ -21,7 +23,12 @@ const quickLinks = [
 export function HomePage() {
   const info = contentService.generalInfo.demo()
   const wineryLogos = contentService.wineries.demoList().filter((winery) => winery.published)
-  const carouselLogos = [...wineryLogos, ...wineryLogos]
+  const oliveMillLogos = contentService.oliveMills.demoList().filter((mill) => mill.published)
+  const producerLogos = [
+    ...wineryLogos.map((winery) => ({ ...winery, producerType: 'winery' as const })),
+    ...oliveMillLogos.map((mill) => ({ ...mill, producerType: 'oliveMill' as const })),
+  ]
+  const carouselLogos = [...producerLogos, ...producerLogos]
 
   usePageMeta('Home', info.description)
 
@@ -52,9 +59,13 @@ export function HomePage() {
 
       <section className="overflow-hidden rounded-lg border border-stone-200 bg-[#f6f2e8] py-5 shadow-sm">
         <div className="wtf-logo-carousel flex w-max items-center gap-8 px-6">
-          {carouselLogos.map((winery, index) => (
-            <Link key={`${winery.slug}-${index}`} to={publicRoutes.wineryDetail(winery.slug)} className="grid h-20 w-32 shrink-0 place-items-center rounded-md bg-[#f6f2e8] px-3">
-              <img src={winery.logoUrl} alt={`Logo ${winery.name}`} className="max-h-14 max-w-full object-contain" loading="lazy" />
+          {carouselLogos.map((producer, index) => (
+            <Link
+              key={`${producer.id}-${index}`}
+              to={producer.producerType === 'winery' ? publicRoutes.wineryDetail(producer.slug) : publicRoutes.oliveMillDetail(producer.slug)}
+              className="grid h-20 w-32 shrink-0 place-items-center rounded-md bg-[#f6f2e8] px-3"
+            >
+              <img src={producer.logoUrl} alt={`Logo ${producer.name}`} className="max-h-14 max-w-full object-contain" loading="lazy" />
             </Link>
           ))}
         </div>

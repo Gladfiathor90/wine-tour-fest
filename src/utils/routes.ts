@@ -2,6 +2,8 @@ export const publicRoutes = {
   home: '/',
   wineries: '/cantine',
   wineryDetail: (slug: string) => `/cantine/${slug}`,
+  oliveMills: '/frantoi',
+  oliveMillDetail: (slug: string) => `/frantoi/${slug}`,
   wineryCheckIn: (slug: string) => `/check-in/${slug}`,
   events: '/eventi',
   eventDetail: (slug: string) => `/eventi/${slug}`,

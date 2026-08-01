@@ -30,6 +30,26 @@ export type Winery = {
   updatedAt: string
 }
 
+export type OliveMill = {
+  id: string
+  name: string
+  slug: string
+  shortDescription: string
+  description: string
+  address: string
+  city: string
+  phone?: string
+  email?: string
+  website?: string
+  instagram?: string
+  facebook?: string
+  googleMapsUrl: string
+  logoUrl: string
+  coverImageUrl: string
+  gallery: string[]
+  published: boolean
+}
+
 export type FestivalEvent = {
   id: string
   title: string

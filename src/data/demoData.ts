@@ -20,6 +20,7 @@ import type {
   GastronomyDay,
   MapPoint,
   NewsItem,
+  OliveMill,
   Sponsor,
   Winery,
 } from '../types/content'
@@ -353,6 +354,53 @@ export const wineries: Winery[] = [
     published: true,
     createdAt: now,
     updatedAt: now,
+  },
+]
+
+export const oliveMills: OliveMill[] = [
+  {
+    id: 'olive-mill-convertino',
+    name: 'Frantoio Convertino',
+    slug: 'frantoio-convertino',
+    shortDescription: 'Frantoio oleario attivo dal 1970, produttore di olio extravergine di oliva Coratina.',
+    description:
+      'Frantoio Oleario Convertino produce olio extravergine di oliva di qualita dal 1970. Il sito racconta una produzione legata alla cultivar Coratina, al territorio pugliese tra trulli e colline e al servizio di molitura delle olive conto terzi.',
+    address: 'C.da Capitolo zona B',
+    city: 'Martina Franca',
+    phone: '+39 080 4383131',
+    email: 'info@olioconvertino.it',
+    website: 'https://www.olioconvertino.com/',
+    googleMapsUrl: wineryMapsUrl('Frantoio Oleario Convertino C.da Capitolo zona B Martina Franca TA'),
+    logoUrl: 'https://files.supersite.aruba.it/media/28529_0a3a5200909e38baf1a833630a2d23b043b65c6d.png/v1/w_148,h_0/1952531a-e9a8-43b5-9764-6f40017e7d5d.png',
+    coverImageUrl: 'https://files.supersite.aruba.it/media/28529_223dddab1f955d166e05cff54c6938a55d03088e.jpeg/v1/w_878,h_0/8d563a9c-bec7-4b7c-ae58-1a69d29e6393.jpg',
+    gallery: [
+      'https://files.supersite.aruba.it/media/28529_223dddab1f955d166e05cff54c6938a55d03088e.jpeg/v1/w_878,h_0/8d563a9c-bec7-4b7c-ae58-1a69d29e6393.jpg',
+      'https://files.supersite.aruba.it/media/28529_ec9f821ecdcea777352857b1b538ce1488fb8cf1.jpeg/v1/w_0,h_1187/6178c0d7-cac4-45fe-83cb-41524c76be86.jpg',
+      'https://files.supersite.aruba.it/media/28529_5728bfcdecdfffdd1c057c8f7d5ce78221eacdc4.png/v1/w_358,h_0/75c4e366-ccb2-4c68-b338-e97850ee8eb4.png',
+    ],
+    published: true,
+  },
+  {
+    id: 'olive-mill-agricola-macripo',
+    name: 'Agricola Macripò',
+    slug: 'agricola-macripo',
+    shortDescription: 'Azienda agricola di Sava dedicata a olio extravergine di oliva locale e biologico.',
+    description:
+      'Agricola Macripò racconta il proprio amore per l’olio con una produzione di olio extravergine di oliva 100% locale. L’azienda valorizza radici, ulivi e alto Salento, con prodotti certificati e una proposta che comprende olio EVO, aromatizzati, fruttato intenso e prodotti locali.',
+    address: 'Via Corsica, 6',
+    city: 'Sava',
+    phone: '+39 366 2100490',
+    email: 'info@agricolamacripo.it',
+    website: 'https://www.agricolamacripo.it/',
+    googleMapsUrl: wineryMapsUrl('Via Corsica 6 Sava TA Agricola Macripo'),
+    logoUrl: 'https://www.agricolamacripo.it/images/logo--Copy-.webp',
+    coverImageUrl: 'https://www.agricolamacripo.it/images/chi-siamo.webp',
+    gallery: [
+      'https://www.agricolamacripo.it/images/chi-siamo.webp',
+      'https://www.agricolamacripo.it/images/macripo-gallery-2024--4-.webp',
+      'https://www.agricolamacripo.it/images/macripo-2024--4---Copy-.webp',
+    ],
+    published: true,
   },
 ]
 

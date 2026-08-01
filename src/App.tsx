@@ -20,6 +20,8 @@ import { InfoPage } from './pages/public/InfoPage'
 import { NewsPage } from './pages/public/NewsPage'
 import { NewsDetailPage } from './pages/public/NewsDetailPage'
 import { NotFoundPage } from './pages/public/NotFoundPage'
+import { OliveMillDetailPage } from './pages/public/OliveMillDetailPage'
+import { OliveMillsPage } from './pages/public/OliveMillsPage'
 import { MenuPage } from './pages/public/MenuPage'
 import { PrivacyPage } from './pages/public/PrivacyPage'
 import { SponsorsPage } from './pages/public/SponsorsPage'
@@ -38,6 +40,8 @@ const router = createBrowserRouter([
       { path: publicRoutes.home, element: <HomePage /> },
       { path: publicRoutes.wineries, element: <WineriesPage /> },
       { path: '/cantine/:slug', element: <WineryDetailPage /> },
+      { path: publicRoutes.oliveMills, element: <OliveMillsPage /> },
+      { path: '/frantoi/:slug', element: <OliveMillDetailPage /> },
       { path: '/check-in/:slug', element: <WineryCheckInPage /> },
       { path: publicRoutes.events, element: <EventsPage /> },
       { path: '/eventi/:slug', element: <EventDetailPage /> },
