@@ -141,12 +141,6 @@ input {
   object-position: 50% 31%;
 }
 
-.wtf-logo-frame {
-  display: inline-grid;
-  place-items: center;
-  overflow: hidden;
-}
-
 .wtf-logo-carousel {
   animation: wtf-logo-scroll 34s linear infinite;
 }

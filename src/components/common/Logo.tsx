@@ -1,4 +1,4 @@
-const logoPath = '/logos/wine%20tour%20fest%20svg.svg'
+const logoPath = '/logos/wine-tour-fest.png'
 
 type LogoProps = {
   compact?: boolean
@@ -6,13 +6,11 @@ type LogoProps = {
 
 export function Logo({ compact = false }: LogoProps) {
   return (
-    <span className={compact ? 'wtf-logo-frame h-[5.5rem] w-[7.5rem]' : 'wtf-logo-frame h-36 w-44'}>
-      <img
-        src={logoPath}
-        alt="Wine Tour Fest"
-        className="h-full w-full scale-[1.28] object-contain"
-        loading="eager"
-      />
-    </span>
+    <img
+      src={logoPath}
+      alt="Wine Tour Fest"
+      className={compact ? 'h-24 w-24 object-contain' : 'h-40 w-40 object-contain'}
+      loading="eager"
+    />
   )
 }

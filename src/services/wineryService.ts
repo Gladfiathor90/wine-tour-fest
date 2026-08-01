@@ -31,7 +31,7 @@ export type WineryFormValues = {
   published: boolean
 }
 
-const fallbackLogo = '/logos/wine%20tour%20fest%20svg.svg'
+const fallbackLogo = '/logos/wine-tour-fest.png'
 const fallbackCover = '/images/brand-identity-2026.jpeg'
 const useLocalWineryCatalog = import.meta.env.DEV
 

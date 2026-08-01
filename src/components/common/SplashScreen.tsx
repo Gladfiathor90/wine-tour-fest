@@ -1,4 +1,4 @@
-const logoPath = '/logos/wine%20tour%20fest%20svg.svg'
+const logoPath = '/logos/wine-tour-fest.png'
 
 type SplashScreenProps = {
   isVisible: boolean
@@ -16,7 +16,7 @@ export function SplashScreen({ isVisible }: SplashScreenProps) {
       <img
         src={logoPath}
         alt="Wine Tour Fest"
-        className="h-72 max-h-[42svh] w-auto max-w-[76vw] scale-[1.28] object-contain"
+        className="h-72 max-h-[42svh] w-72 max-w-[76vw] object-contain"
         decoding="async"
       />
       <div className="sr-only">Wine Tour Fest</div>

@@ -263,7 +263,7 @@ export const wineries: Winery[] = [
     latitude: 0,
     longitude: 0,
     googleMapsUrl: wineryMapsUrl('Via del Gelso 49 Barletta BT'),
-    logoUrl: '/logos/wine%20tour%20fest%20svg.svg',
+    logoUrl: '/logos/wine-tour-fest.png',
     coverImageUrl: imageFallbacks.tasting,
     gallery: [imageFallbacks.tasting, imageFallbacks.food],
     featured: false,
@@ -636,12 +636,12 @@ export const newsItems: NewsItem[] = [
 ]
 
 export const sponsors: Sponsor[] = [
-  { id: 'sp-1', name: 'Consorzio Produttori', logoUrl: '/logos/wine%20tour%20fest%20svg.svg', website: 'https://example.com', level: 'Main sponsor', displayOrder: 1, active: true },
-  { id: 'sp-2', name: 'Comune di Lizzano', logoUrl: '/logos/wine%20tour%20fest%20svg.svg', level: 'Patrocini', displayOrder: 2, active: true },
-  { id: 'sp-3', name: 'Pro Loco', logoUrl: '/logos/wine%20tour%20fest%20svg.svg', level: 'Partner', displayOrder: 3, active: true },
-  { id: 'sp-4', name: 'Strada del Vino', logoUrl: '/logos/wine%20tour%20fest%20svg.svg', level: 'Partner', displayOrder: 4, active: true },
-  { id: 'sp-5', name: 'Bottega Locale', logoUrl: '/logos/wine%20tour%20fest%20svg.svg', level: 'Sponsor', displayOrder: 5, active: true },
-  { id: 'sp-6', name: 'Associazione Sommelier', logoUrl: '/logos/wine%20tour%20fest%20svg.svg', level: 'Associazioni', displayOrder: 6, active: true },
+  { id: 'sp-1', name: 'Consorzio Produttori', logoUrl: '/logos/wine-tour-fest.png', website: 'https://example.com', level: 'Main sponsor', displayOrder: 1, active: true },
+  { id: 'sp-2', name: 'Comune di Lizzano', logoUrl: '/logos/wine-tour-fest.png', level: 'Patrocini', displayOrder: 2, active: true },
+  { id: 'sp-3', name: 'Pro Loco', logoUrl: '/logos/wine-tour-fest.png', level: 'Partner', displayOrder: 3, active: true },
+  { id: 'sp-4', name: 'Strada del Vino', logoUrl: '/logos/wine-tour-fest.png', level: 'Partner', displayOrder: 4, active: true },
+  { id: 'sp-5', name: 'Bottega Locale', logoUrl: '/logos/wine-tour-fest.png', level: 'Sponsor', displayOrder: 5, active: true },
+  { id: 'sp-6', name: 'Associazione Sommelier', logoUrl: '/logos/wine-tour-fest.png', level: 'Associazioni', displayOrder: 6, active: true },
 ]
 
 export const mapPoints: MapPoint[] = [
