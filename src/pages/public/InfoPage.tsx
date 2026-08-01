@@ -91,6 +91,9 @@ export function InfoPage() {
         <h2 className="text-2xl font-bold text-stone-950">Contatti</h2>
         <p className="mt-3 text-sm font-semibold text-stone-600">{info.email}</p>
         <p className="mt-1 text-sm font-semibold text-stone-600">{info.phone}</p>
+        <a href={info.website} target="_blank" rel="noreferrer" className="mt-3 inline-flex min-h-10 items-center justify-center rounded-md border border-wine-700 px-4 text-sm font-black uppercase tracking-[0.08em] text-wine-700">
+          Portale Comune di Lizzano
+        </a>
       </section>
     </div>
   )
