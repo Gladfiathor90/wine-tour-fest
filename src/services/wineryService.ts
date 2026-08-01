@@ -33,6 +33,7 @@ export type WineryFormValues = {
 
 const fallbackLogo = '/logos/wine%20tour%20fest%20svg.svg'
 const fallbackCover = '/images/brand-identity-2026.jpeg'
+const useLocalWineryCatalog = import.meta.env.DEV
 
 function emptyToNull(value: string) {
   const trimmed = value.trim()
@@ -129,6 +130,8 @@ export const wineryService = {
   byId: (id: string | undefined) => wineries.find((winery) => winery.id === id),
 
   getPublished: async (): Promise<Winery[]> => {
+    if (useLocalWineryCatalog) return wineries.filter((winery) => winery.published)
+
     const client = assertSupabase()
     const { data, error } = await client
       .from('wineries')
@@ -155,6 +158,8 @@ export const wineryService = {
 
   getBySlug: async (slug: string | undefined): Promise<Winery | null> => {
     if (!slug) return null
+    if (useLocalWineryCatalog) return wineries.find((winery) => winery.slug === slug && winery.published) ?? null
+
     const client = assertSupabase()
     const { data, error } = await client
       .from('wineries')
