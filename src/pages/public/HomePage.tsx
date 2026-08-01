@@ -65,7 +65,7 @@ export function HomePage() {
               to={producer.producerType === 'winery' ? publicRoutes.wineryDetail(producer.slug) : publicRoutes.oliveMillDetail(producer.slug)}
               className="grid h-20 w-32 shrink-0 place-items-center rounded-md bg-[#f6f2e8] px-3"
             >
-              <img src={producer.logoUrl} alt={`Logo ${producer.name}`} className="max-h-14 max-w-full object-contain" loading="lazy" />
+              <img src={producer.logoUrl} alt={`Logo ${producer.name}`} className="max-h-14 max-w-full object-contain" loading="eager" decoding="async" />
             </Link>
           ))}
         </div>
