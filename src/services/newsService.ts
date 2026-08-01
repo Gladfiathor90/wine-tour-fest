@@ -7,6 +7,8 @@ type NewsRow = Database['public']['Tables']['news']['Row']
 type NewsInsert = Database['public']['Tables']['news']['Insert']
 type NewsUpdate = Database['public']['Tables']['news']['Update']
 
+const useLocalNewsCatalog = import.meta.env.DEV
+
 export type NewsFormValues = {
   title: string
   slug: string
@@ -78,6 +80,10 @@ export const newsService = {
   bySlug: (slug: string | undefined) => newsItems.find((item) => item.slug === slug),
 
   getPublished: async (): Promise<NewsItem[]> => {
+    if (useLocalNewsCatalog) {
+      return newsService.demoList().filter((item) => item.published)
+    }
+
     const client = assertSupabase()
     const { data, error } = await client
       .from('news')
@@ -91,6 +97,10 @@ export const newsService = {
   },
 
   getAll: async (): Promise<NewsItem[]> => {
+    if (useLocalNewsCatalog) {
+      return newsService.demoList()
+    }
+
     const client = assertSupabase()
     const { data, error } = await client
       .from('news')
@@ -104,6 +114,10 @@ export const newsService = {
 
   getBySlug: async (slug: string | undefined): Promise<NewsItem | null> => {
     if (!slug) return null
+    if (useLocalNewsCatalog) {
+      return newsItems.find((item) => item.slug === slug && item.published) ?? null
+    }
+
     const client = assertSupabase()
     const { data, error } = await client.from('news').select('*').eq('slug', slug).eq('published', true).maybeSingle()
     if (error) throw error

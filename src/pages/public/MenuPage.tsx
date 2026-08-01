@@ -12,7 +12,7 @@ const items = [
   { label: 'Mappa', path: publicRoutes.map, icon: MapPinned },
   { label: 'Partners', path: publicRoutes.partners, icon: Trophy },
   { label: 'Gioca e vinci', path: publicRoutes.game, icon: Gamepad2 },
-  { label: 'Informazioni utili', path: publicRoutes.info, icon: Info },
+  { label: 'Informazioni e ticket', path: publicRoutes.info, icon: Info },
   { label: 'Contatti', path: publicRoutes.contacts, icon: Mail },
   { label: 'Privacy', path: publicRoutes.privacy, icon: Shield },
 ]
