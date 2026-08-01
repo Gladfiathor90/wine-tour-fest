@@ -20,6 +20,8 @@ const quickLinks = [
 
 export function HomePage() {
   const info = contentService.generalInfo.demo()
+  const wineryLogos = contentService.wineries.demoList().filter((winery) => winery.published)
+  const carouselLogos = [...wineryLogos, ...wineryLogos]
 
   usePageMeta('Home', info.description)
 
@@ -37,14 +39,6 @@ export function HomePage() {
         <p className="mx-auto mt-6 max-w-[25rem] text-xl font-medium leading-[1.65] text-stone-600">
           Preparati a vivere un'esperienza unica tra vino, cultura, gastronomia e spettacoli. Passeggia tra le cantine, scopri i produttori locali e lasciati conquistare dall'atmosfera del Centro Storico.
         </p>
-        <div className="mt-8 grid gap-3">
-          <Link className="wtf-button-primary inline-flex min-h-14 items-center justify-center rounded-md bg-wine-900 px-4 py-3 text-lg font-semibold text-cream-50" to={publicRoutes.wineries}>
-            Scopri le cantine
-          </Link>
-          <Link className="wtf-button-secondary inline-flex min-h-14 items-center justify-center rounded-md border border-wine-700 bg-[#f6f2e8] px-4 py-3 text-lg font-black uppercase tracking-[0.08em] text-wine-700" to={publicRoutes.events}>
-            Vedi il programma
-          </Link>
-        </div>
       </section>
 
       <section className="grid grid-cols-2 gap-3">
@@ -54,6 +48,16 @@ export function HomePage() {
             <span className="text-lg font-bold leading-tight text-wine-900">{item.label}</span>
           </Link>
         ))}
+      </section>
+
+      <section className="overflow-hidden rounded-lg border border-stone-200 bg-[#f6f2e8] py-5 shadow-sm">
+        <div className="wtf-logo-carousel flex w-max items-center gap-8 px-6">
+          {carouselLogos.map((winery, index) => (
+            <Link key={`${winery.slug}-${index}`} to={publicRoutes.wineryDetail(winery.slug)} className="grid h-20 w-32 shrink-0 place-items-center rounded-md bg-[#f6f2e8] px-3">
+              <img src={winery.logoUrl} alt={`Logo ${winery.name}`} className="max-h-14 max-w-full object-contain" loading="lazy" />
+            </Link>
+          ))}
+        </div>
       </section>
 
       <footer className="space-y-2 border-t border-stone-200 pt-5 text-center text-sm text-stone-600">

@@ -9,6 +9,8 @@ import { usePageMeta } from '../../hooks/usePageMeta'
 import { contentService } from '../../services/contentService'
 import { publicRoutes } from '../../utils/routes'
 
+const mainStageCenter: [number, number] = [40.388910396877094, 17.44846098820777]
+
 const filters = [
   { label: 'Tutto', value: 'all' },
   { label: 'Cantine', value: 'winery' },
@@ -50,7 +52,7 @@ export function MapPage() {
         ))}
       </div>
       <div className="h-[62svh] min-h-[420px] overflow-hidden rounded-lg border border-stone-200 shadow-sm">
-        <MapContainer center={[40.3894, 17.4481]} zoom={19} maxZoom={19} scrollWheelZoom={false} className="h-full w-full">
+        <MapContainer center={mainStageCenter} zoom={19} maxZoom={19} scrollWheelZoom={false} className="h-full w-full">
           <TileLayer attribution='&copy; OpenStreetMap contributors' maxZoom={19} url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {visiblePoints.map((point) => {
             const linkedWinery = wineries.find((winery) => winery.id === point.wineryId)

@@ -141,6 +141,35 @@ input {
   object-position: 50% 31%;
 }
 
+.wtf-logo-frame {
+  display: inline-grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.wtf-logo-carousel {
+  animation: wtf-logo-scroll 34s linear infinite;
+}
+
+.wtf-logo-carousel:hover {
+  animation-play-state: paused;
+}
+
+@keyframes wtf-logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wtf-logo-carousel {
+    animation: none;
+  }
+}
+
 .wtf-public-app .bg-wine-700 {
   background-color: #8b1025 !important;
 }

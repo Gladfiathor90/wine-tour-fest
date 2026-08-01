@@ -12,12 +12,12 @@ export function PublicHeader({ back = false, onShare }: PublicHeaderProps) {
   const navigate = useNavigate()
 
   return (
-    <header className="sticky top-0 z-20 -mx-4 mb-4 border-b border-stone-200 bg-cream-50/95 px-4 py-3 backdrop-blur min-[700px]:-mx-6 min-[700px]:px-6">
-      <div className="grid min-h-28 grid-cols-[48px_1fr_48px] items-center">
+    <header className="-mx-4 mb-4 border-b border-stone-200 bg-cream-50 px-4 py-2 min-[700px]:-mx-6 min-[700px]:px-6">
+      <div className="grid min-h-24 grid-cols-[40px_1fr_40px] items-center">
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className={`grid h-11 w-11 place-items-center rounded-md text-stone-700 ${back ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+          className={`grid h-10 w-10 place-items-center rounded-md text-stone-700 ${back ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
           aria-label="Torna indietro"
         >
           <ArrowLeft className="h-5 w-5" aria-hidden="true" />
@@ -28,7 +28,7 @@ export function PublicHeader({ back = false, onShare }: PublicHeaderProps) {
         <button
           type="button"
           onClick={onShare}
-          className={`grid h-11 w-11 place-items-center rounded-md text-stone-700 ${onShare ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+          className={`grid h-10 w-10 place-items-center rounded-md text-stone-700 ${onShare ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
           aria-label="Condividi"
         >
           <Share2 className="h-5 w-5" aria-hidden="true" />

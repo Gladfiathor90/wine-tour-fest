@@ -16,7 +16,7 @@ export function SplashScreen({ isVisible }: SplashScreenProps) {
       <img
         src={logoPath}
         alt="Wine Tour Fest"
-        className="max-h-[78svh] w-full max-w-[430px] object-contain"
+        className="h-72 max-h-[42svh] w-auto max-w-[76vw] scale-[1.28] object-contain"
         decoding="async"
       />
       <div className="sr-only">Wine Tour Fest</div>
