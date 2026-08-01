@@ -28,6 +28,11 @@ export function InfoPage() {
           )
         })}
       </div>
+      <section id="contatti" className="rounded-lg border border-stone-200 bg-[#f6f2e8] p-5 text-center shadow-sm">
+        <h2 className="text-2xl font-bold text-stone-950">Contatti</h2>
+        <p className="mt-3 text-sm font-semibold text-stone-600">{info.email}</p>
+        <p className="mt-1 text-sm font-semibold text-stone-600">{info.phone}</p>
+      </section>
     </div>
   )
 }

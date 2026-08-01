@@ -1,4 +1,4 @@
-import { CalendarDays, Gamepad2, Info, Mail, Newspaper, Shield, Trophy, Utensils } from 'lucide-react'
+import { CalendarDays, Gamepad2, Info, Mail, MapPinned, Newspaper, Shield, Trophy, Utensils } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { PublicHeader } from '../../components/common/PublicHeader'
 import { QrScannerButton } from '../../components/common/QrScannerButton'
@@ -6,13 +6,14 @@ import { usePageMeta } from '../../hooks/usePageMeta'
 import { publicRoutes } from '../../utils/routes'
 
 const items = [
-  { label: 'News', path: publicRoutes.news, icon: Newspaper },
   { label: 'Programma', path: publicRoutes.events, icon: CalendarDays },
   { label: 'Gastronomia', path: publicRoutes.gastronomy, icon: Utensils },
+  { label: 'News', path: publicRoutes.news, icon: Newspaper },
+  { label: 'Mappa', path: publicRoutes.map, icon: MapPinned },
+  { label: 'Partners', path: publicRoutes.partners, icon: Trophy },
+  { label: 'Gioca e vinci', path: publicRoutes.game, icon: Gamepad2 },
   { label: 'Informazioni utili', path: publicRoutes.info, icon: Info },
-  { label: 'Sponsor', path: publicRoutes.sponsors, icon: Trophy },
-  { label: 'Gioca', path: publicRoutes.game, icon: Gamepad2 },
-  { label: 'Contatti', path: publicRoutes.info, icon: Mail },
+  { label: 'Contatti', path: publicRoutes.contacts, icon: Mail },
   { label: 'Privacy', path: publicRoutes.privacy, icon: Shield },
 ]
 
@@ -23,11 +24,11 @@ export function MenuPage() {
       <PublicHeader title="Menu" />
       <h1 className="text-3xl font-bold text-stone-950">Menu</h1>
       <QrScannerButton />
-      <div className="grid gap-3">
+      <div className="grid grid-cols-2 gap-3">
         {items.map((item) => (
-          <Link key={`${item.label}-${item.path}`} to={item.path} className="flex min-h-16 items-center gap-4 rounded-lg bg-white p-4 text-lg font-semibold text-stone-950 shadow-sm">
-            <item.icon className="h-6 w-6 text-wine-700" aria-hidden="true" />
-            {item.label}
+          <Link key={`${item.label}-${item.path}`} to={item.path} className="flex aspect-[1.12] flex-col items-center justify-center gap-5 rounded-lg border border-stone-200 bg-[#f6f2e8] p-4 text-center text-lg font-semibold text-stone-950 shadow-sm">
+            <item.icon className="h-8 w-8 text-wine-700" aria-hidden="true" />
+            <span>{item.label}</span>
           </Link>
         ))}
       </div>

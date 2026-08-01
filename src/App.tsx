@@ -23,6 +23,7 @@ import { NotFoundPage } from './pages/public/NotFoundPage'
 import { MenuPage } from './pages/public/MenuPage'
 import { PrivacyPage } from './pages/public/PrivacyPage'
 import { SponsorsPage } from './pages/public/SponsorsPage'
+import { SocialPage } from './pages/public/SocialPage'
 import { WineriesPage } from './pages/public/WineriesPage'
 import { WineryCheckInPage } from './pages/public/WineryCheckInPage'
 import { WineryDetailPage } from './pages/public/WineryDetailPage'
@@ -45,8 +46,10 @@ const router = createBrowserRouter([
       { path: publicRoutes.map, element: <Suspense fallback={<div className="p-5 text-sm text-stone-600">Caricamento mappa...</div>}><MapPage /></Suspense> },
       { path: publicRoutes.info, element: <InfoPage /> },
       { path: publicRoutes.sponsors, element: <SponsorsPage /> },
+      { path: publicRoutes.partners, element: <SponsorsPage /> },
       { path: publicRoutes.gastronomy, element: <GastronomyPage /> },
       { path: publicRoutes.game, element: <GamePage /> },
+      { path: publicRoutes.social, element: <SocialPage /> },
       { path: publicRoutes.menu, element: <MenuPage /> },
       { path: publicRoutes.privacy, element: <PrivacyPage /> },
       { path: '*', element: <NotFoundPage /> },

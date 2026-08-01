@@ -10,8 +10,11 @@ export const publicRoutes = {
   map: '/mappa',
   info: '/informazioni',
   sponsors: '/sponsor',
+  partners: '/partners',
+  contacts: '/informazioni#contatti',
   gastronomy: '/gastronomia',
   game: '/gioca',
+  social: '/social',
   privacy: '/privacy',
   menu: '/menu',
 }

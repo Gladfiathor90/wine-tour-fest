@@ -13,7 +13,7 @@ export function MapPlaceholder() {
         </div>
         <h2 className="mt-4 text-2xl font-bold text-stone-950">Mappa del festival</h2>
         <p className="mt-2 max-w-sm text-sm text-stone-600">
-          Placeholder per cantine, punti info, parcheggi e luoghi utili. Il collegamento a una mappa reale arrivera nella prossima fase.
+          Placeholder per cantine, palco centrale, gastronomia e info point.
         </p>
         <button className="mt-5 inline-flex items-center gap-2 rounded-md bg-stone-950 px-4 py-2 text-sm font-semibold text-white">
           <Navigation className="h-4 w-4" aria-hidden="true" />

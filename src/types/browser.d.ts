@@ -8,7 +8,7 @@ type BarcodeDetectorOptions = {
 
 declare class BarcodeDetector {
   constructor(options?: BarcodeDetectorOptions)
-  detect(source: HTMLVideoElement): Promise<DetectedBarcode[]>
+  detect(source: HTMLVideoElement | ImageBitmap): Promise<DetectedBarcode[]>
 }
 
 interface Window {

@@ -9,6 +9,8 @@ import type { FestivalEvent } from '../../types/content'
 import { publicRoutes } from '../../utils/routes'
 
 const dayFormatter = new Intl.DateTimeFormat('it-IT', { day: '2-digit', month: 'long', year: 'numeric' })
+const categoryGroups = ['Tutti', 'Musica e DJ', 'Arte e spettacoli', 'Bambini e famiglie', 'Cultura'] as const
+type CategoryGroup = (typeof categoryGroups)[number]
 
 const locationStyles = {
   'MUSEO Mu.Pa.U': 'bg-gold-600 text-cream-50',
@@ -26,9 +28,27 @@ function locationClass(location: string) {
   return locationStyles[location as keyof typeof locationStyles] ?? 'bg-wine-900 text-cream-50'
 }
 
+function categoryGroupFor(event: FestivalEvent): Exclude<CategoryGroup, 'Tutti'> {
+  const text = `${event.category} ${event.title} ${event.description}`.toLowerCase()
+
+  if (/(bambin|cartoon|karaoke|favol|cantastorie|trampol|scientific|esperiment|arcobaleno|penguin|innova)/.test(text)) {
+    return 'Bambini e famiglie'
+  }
+
+  if (/(inaugural|convegno|identit|territorio|autorita|museo|mupau|mu\\.pa\\.u)/.test(text)) {
+    return 'Cultura'
+  }
+
+  if (/(danza|spettacolo|acrobatic|vertical|painting|arte|custode|vento)/.test(text)) {
+    return 'Arte e spettacoli'
+  }
+
+  return 'Musica e DJ'
+}
+
 export function EventsPage() {
   const [events, setEvents] = useState<FestivalEvent[]>([])
-  const [category, setCategory] = useState('Tutti')
+  const [category, setCategory] = useState<CategoryGroup>('Tutti')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   usePageMeta('Programma', 'Programma eventi Wine Tour Fest a Lizzano.')
@@ -56,10 +76,13 @@ export function EventsPage() {
     }
   }, [])
 
-  const categories = useMemo(() => ['Tutti', ...Array.from(new Set(events.map((event) => event.category).filter(Boolean)))], [events])
+  const categories = useMemo(() => {
+    const available = new Set(events.map(categoryGroupFor))
+    return categoryGroups.filter((item) => item === 'Tutti' || available.has(item))
+  }, [events])
 
   const groupedEvents = useMemo(() => {
-    const filtered = events.filter((event) => category === 'Tutti' || event.category === category)
+    const filtered = events.filter((event) => category === 'Tutti' || categoryGroupFor(event) === category)
     const days = Array.from(new Set(filtered.map((event) => event.startDate)))
     return days.map((day) => ({
       day,
@@ -113,7 +136,7 @@ export function EventsPage() {
                         <p className="whitespace-nowrap text-sm font-medium leading-none opacity-95">{timeLabel(event)}</p>
                       </div>
                       <div className="p-3">
-                        <p className="text-xs font-black uppercase tracking-[0.08em] text-gold-700">{event.category}</p>
+                        <p className="text-xs font-black uppercase tracking-[0.08em] text-gold-700">{categoryGroupFor(event)}</p>
                         <h2 className="mt-1 text-left text-xl font-black leading-tight text-wine-900">{event.title}</h2>
                         <p className="mt-2 whitespace-pre-line text-left text-sm font-medium leading-5 text-stone-700">{event.description}</p>
                       </div>

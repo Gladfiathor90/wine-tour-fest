@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react'
 
 export type EventStatus = 'scheduled' | 'live' | 'finished' | 'cancelled'
 export type SponsorLevel = 'Main sponsor' | 'Partner' | 'Sponsor' | 'Patrocini' | 'Associazioni'
-export type MapPointCategory = 'winery' | 'parking' | 'info' | 'toilet' | 'shuttle' | 'poi' | 'main'
+export type MapPointCategory = 'winery' | 'info' | 'toilet' | 'poi' | 'main' | 'venue'
 
 export type Winery = {
   id: string
@@ -114,8 +114,6 @@ export type GeneralInfo = {
   website: string
   instagram: string
   facebook: string
-  parkingInfo: string
-  accessibilityInfo: string
   usefulInfo: Array<{ title: string; content: string }>
 }
 

@@ -50,22 +50,12 @@ export const generalInfo: GeneralInfo = {
   website: 'https://winetourfest.com',
   instagram: 'https://instagram.com/winetourfest',
   facebook: 'https://facebook.com/winetourfest',
-  parkingInfo: 'Parcheggi consigliati nel Centro Storico di Lizzano, vicino a Largo Bino e Largo Rosario. Segui la segnaletica temporanea.',
-  accessibilityInfo:
-    'Le aree principali sono raggiungibili a piedi. Alcune cantine rurali possono avere percorsi sterrati: contatta l’organizzazione per esigenze specifiche.',
   usefulInfo: [
     { title: 'Date e orari generali', content: '11, 12 e 13 agosto 2026, nel Centro Storico di Lizzano.' },
-    { title: 'Come arrivare', content: 'Il punto di riferimento principale e Largo Bino, Lizzano (TA). Da li puoi seguire mappa e percorsi pedonali.' },
-    { title: 'Parcheggi', content: 'Sono disponibili parcheggi gratuiti e aree temporanee vicino ai varchi principali.' },
-    { title: 'Navette', content: 'Le navette collegano centro storico, parcheggi e cantine rurali nelle fasce serali.' },
-    { title: 'Accessibilita', content: 'Gli info point possono indicare i percorsi piu accessibili e i servizi disponibili.' },
+    { title: 'Come arrivare', content: 'Il punto di riferimento principale e Largo Bino, Lizzano (TA). Da li puoi seguire mappa e percorsi del festival.' },
     { title: 'Contatti', content: 'Per assistenza scrivi a info@winetourfest.com o chiama +39 099 000 0000.' },
     { title: 'Domande frequenti', content: 'Non serve registrazione per consultare la web app. Alcune degustazioni possono avere posti limitati.' },
-    { title: 'Regolamento', content: 'Bevi responsabilmente. Gli organizzatori possono modificare il programma per motivi tecnici o meteo.' },
-    { title: 'Numeri utili', content: 'Emergenze 112, info point festival +39 099 000 0000.' },
     { title: 'Informazioni sui calici', content: 'Il calice ufficiale sara disponibile presso lo stand principale fino a esaurimento.' },
-    { title: 'Prenotazioni', content: 'La web app non gestisce prenotazioni interne. Usa eventuali link esterni indicati negli eventi.' },
-    { title: 'Altre informazioni', content: 'Controlla la sezione News per variazioni urgenti del programma.' },
   ],
 }
 
@@ -418,11 +408,11 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 'news-2',
-    title: 'Navette serali in preparazione',
-    slug: 'navette-serali-in-preparazione',
-    excerpt: 'Sono in fase di definizione i collegamenti tra parcheggi, centro e cantine rurali.',
+    title: 'Percorsi del festival',
+    slug: 'percorsi-del-festival',
+    excerpt: 'La mappa indica i principali punti del Wine Tour Fest nel centro storico.',
     content:
-      'Il servizio navetta sara pensato per ridurre gli spostamenti in auto e facilitare la visita alle cantine fuori dal centro.',
+      'Consulta la sezione Mappa per raggiungere palco centrale, cantine, gastronomia e info point del festival.',
     imageUrl: imageFallbacks.vineyard,
     publishedAt: '2026-07-28',
     author: 'Staff mobilita',
@@ -433,11 +423,11 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 'news-3',
-    title: 'Aperte le adesioni sponsor',
-    slug: 'aperte-adesioni-sponsor',
+    title: 'Aperte le adesioni partners',
+    slug: 'aperte-adesioni-partners',
     excerpt: 'Attivita e partner locali possono aderire agli spazi promozionali del festival.',
     content:
-      'Gli sponsor saranno mostrati nella pagina dedicata con livelli, loghi e collegamenti ai siti ufficiali quando disponibili.',
+      'I partners saranno mostrati nella pagina dedicata con livelli, loghi e collegamenti ai siti ufficiali quando disponibili.',
     imageUrl: imageFallbacks.food,
     publishedAt: '2026-07-28',
     author: 'Segreteria organizzativa',
@@ -458,23 +448,13 @@ export const sponsors: Sponsor[] = [
 ]
 
 export const mapPoints: MapPoint[] = [
-  ...wineries.map((winery) => ({
-    id: `map-${winery.id}`,
-    name: winery.name,
-    category: 'winery' as const,
-    description: winery.shortDescription,
-    address: winery.address,
-    latitude: winery.latitude,
-    longitude: winery.longitude,
-    icon: 'wine',
-    wineryId: winery.id,
-    active: true,
-  })),
-  { id: 'map-parking-1', name: 'Parcheggio centro', category: 'parking', description: 'Parcheggio consigliato vicino al percorso musicale.', address: 'Centro storico, Lizzano (TA)', latitude: 40.3909, longitude: 17.4469, icon: 'parking', active: true },
-  { id: 'map-info-1', name: 'Info Point Largo Bino', category: 'info', description: 'Assistenza, programma aggiornato e indicazioni.', address: 'Largo Bino, Lizzano (TA)', latitude: 40.39194, longitude: 17.44833, icon: 'info', active: true },
-  { id: 'map-toilet-1', name: 'Bagni pubblici', category: 'toilet', description: 'Servizi igienici vicino all’area principale.', address: 'Centro storico, Lizzano (TA)', latitude: 40.3914, longitude: 17.4489, icon: 'toilet', active: true },
-  { id: 'map-shuttle-1', name: 'Fermata navetta', category: 'shuttle', description: 'Collegamento con parcheggi e aree concerto.', address: 'Lizzano (TA)', latitude: 40.3906, longitude: 17.4477, icon: 'bus', active: true },
-  { id: 'map-main-1', name: 'Largo Bino', category: 'main', description: 'Area principale e riferimento per il QR/programmazione.', address: 'Largo Bino, Lizzano (TA)', latitude: 40.39194, longitude: 17.44833, icon: 'star', active: true },
+  { id: 'map-main-stage', name: 'Palco Centrale', category: 'main', description: 'Area spettacoli principale del Wine Tour Fest.', address: 'Centro Storico, Lizzano (TA)', latitude: 40.388910396877094, longitude: 17.44846098820777, icon: 'stage', active: true },
+  { id: 'map-largo-rosario', name: 'Largo Rosario', category: 'venue', description: 'Luogo eventi Wine Tour Fest.', address: 'Largo Rosario, Lizzano (TA)', latitude: 40.38864733919985, longitude: 17.447535804624714, icon: 'stage', active: true },
+  { id: 'map-largo-mentana', name: 'Largo Mentana', category: 'venue', description: 'Luogo eventi Wine Tour Fest.', address: 'Largo Mentana, Lizzano (TA)', latitude: 40.38942620653675, longitude: 17.448294197830602, icon: 'stage', active: true },
+  { id: 'map-wineries', name: 'Cantine', category: 'winery', description: 'Area cantine Wine Tour Fest.', address: 'Centro Storico, Lizzano (TA)', latitude: 40.389072, longitude: 17.447876, icon: 'wine', active: true },
+  { id: 'map-gastronomy', name: 'Gastronomia', category: 'poi', description: 'Area gastronomia Wine Tour Fest.', address: 'Centro Storico, Lizzano (TA)', latitude: 40.3892102372066, longitude: 17.44753414259968, icon: 'food', active: true },
+  { id: 'map-info-largo-bino', name: 'Info Point Largo Bino', category: 'info', description: 'Punto informazioni del festival.', address: 'Largo Bino, 1, 74020 Lizzano TA', latitude: 40.39194, longitude: 17.44833, icon: 'info', active: true },
+  { id: 'map-info-2', name: 'Info Point', category: 'info', description: 'Punto informazioni del festival.', address: 'Centro Storico, Lizzano (TA)', latitude: 40.38911932666038, longitude: 17.448020963499488, icon: 'info', active: true },
 ]
 
 export const gameSettings: GameSettings = {
@@ -501,10 +481,11 @@ export const gastronomyDays: GastronomyDay[] = [
     month: 'Agosto',
     year: '2026',
     dishes: [
-      'Pizzicarieddi con crema di caciocavallo e fiori di zucchina',
-      'Peperonata con pomodorini e olive',
+      'Pizzicarieddi artigianali con crema di caciocavallo e fiori di zucchina',
+      'Peperonata tradizionale con pomodorini freschi e olive',
+      'Pane casereccio',
     ],
-    note: 'Bottiglia d’acqua 0.50 ml inclusa',
+    note: 'Acqua naturale 0,50 L inclusa',
     price: '€7',
   },
   {
@@ -513,8 +494,13 @@ export const gastronomyDays: GastronomyDay[] = [
     day: '12',
     month: 'Agosto',
     year: '2026',
-    dishes: ['Fave', 'Verdura', 'Friggitelli e pane di grano'],
-    note: 'Bottiglia d’acqua 0.50 ml inclusa',
+    dishes: [
+      'Fave bianche della tradizione',
+      'Verdure di stagione',
+      'Friggitelli saltati',
+      'Pane di grano',
+    ],
+    note: 'Acqua naturale 0,50 L inclusa',
     price: '€7',
   },
   {
@@ -523,8 +509,12 @@ export const gastronomyDays: GastronomyDay[] = [
     day: '13',
     month: 'Agosto',
     year: '2026',
-    dishes: ['Orecchiette con pomodorini freschi, rucola e cacioricotta', 'Puccia di patate'],
-    note: 'Bottiglia d’acqua 0.50 ml inclusa',
+    dishes: [
+      'Orecchiette con pomodorini freschi, rucola e cacioricotta',
+      'Puccia con patate',
+      'Pane casereccio',
+    ],
+    note: 'Acqua naturale 0,50 L inclusa',
     price: '€7',
   },
 ]
@@ -535,8 +525,8 @@ export const adminSections: AdminSection[] = [
   { label: 'News', path: '/admin/news', description: 'Comunicazioni, urgenze e variazioni programma.', icon: Newspaper },
   { label: 'QR Code', path: '/admin/qr', description: 'Visualizza e scarica i QR di check-in delle cantine.', icon: QrCode },
   { label: 'Mappa', path: '/admin/mappa', description: 'Punti di interesse, servizi e coordinate.', icon: MapPinned },
-  { label: 'Sponsor', path: '/admin/sponsor', description: 'Livelli, loghi, ordine e stato attivo.', icon: Trophy },
-  { label: 'Informazioni', path: '/admin/informazioni', description: 'Dati generali, contatti, parcheggi e accessibilita.', icon: Info },
+  { label: 'Partners', path: '/admin/sponsor', description: 'Livelli, loghi, ordine e stato attivo.', icon: Trophy },
+  { label: 'Informazioni', path: '/admin/informazioni', description: 'Dati generali, contatti e informazioni essenziali.', icon: Info },
   { label: 'Gioco', path: '/admin/gioco', description: 'Durata, vite, punteggi e soglia premio.', icon: Gamepad2 },
   { label: 'Gastronomia', path: '/admin/gastronomia', description: 'Menu food, giorni, piatti e prezzo.', icon: Utensils },
   { label: 'Impostazioni', path: '/admin/impostazioni', description: 'Preferenze generali e stato collegamento Supabase.', icon: Settings },

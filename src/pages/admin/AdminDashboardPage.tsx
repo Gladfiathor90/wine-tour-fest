@@ -18,7 +18,7 @@ export function AdminDashboardPage() {
     ['Cantine', wineries.length],
     ['Eventi', events.length],
     ['News', news.length],
-    ['Sponsor', sponsors.length],
+    ['Partners', sponsors.length],
     ['Bozze', drafts],
     ['Eventi del giorno', todayEvents],
   ]

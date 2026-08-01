@@ -8,7 +8,7 @@ export function SplashScreen({ isVisible }: SplashScreenProps) {
   return (
     <div
       className={[
-        'fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-[#062236] px-6 text-center transition-opacity duration-700',
+        'fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-[#f6f2e8] px-6 text-center transition-opacity duration-700',
         isVisible ? 'opacity-100' : 'pointer-events-none opacity-0',
       ].join(' ')}
       aria-hidden={!isVisible}
@@ -20,7 +20,7 @@ export function SplashScreen({ isVisible }: SplashScreenProps) {
         decoding="async"
       />
       <div className="sr-only">Wine Tour Fest</div>
-      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/80">
+      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-wine-900">
         Wine Tour Fest
       </p>
     </div>

@@ -11,7 +11,7 @@ const fieldLabels = {
   news: ['Titolo', 'Slug', 'Estratto', 'Contenuto', 'Autore', 'Importante', 'Pubblicata'],
   mappa: ['Nome punto', 'Categoria', 'Descrizione', 'Indirizzo', 'Latitudine', 'Longitudine', 'Cantina collegata', 'Attivo'],
   sponsor: ['Nome', 'Logo', 'Sito web', 'Livello', 'Ordine', 'Attivo'],
-  informazioni: ['Nome evento', 'Edizione', 'Date', 'Citta', 'Contatti', 'Social', 'Parcheggi', 'Accessibilita', 'Informazioni utili'],
+  informazioni: ['Nome evento', 'Edizione', 'Date', 'Citta', 'Contatti', 'Social', 'Informazioni essenziali'],
   gioco: ['Gioco attivo', 'Durata', 'Vite', 'Punti calice', 'Punti grappolo', 'Punti formaggio', 'Velocita', 'Soglia premio', 'Testo premio', 'Messaggio finale'],
   gastronomia: ['Giorno', 'Mese', 'Anno', 'Piatto 1', 'Piatto 2', 'Nota acqua', 'Prezzo', 'Attivo'],
   impostazioni: ['Stato Supabase', 'Dominio futuro', 'SEO base', 'Favicon', 'Preferenze generali'],
