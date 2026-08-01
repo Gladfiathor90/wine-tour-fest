@@ -149,6 +149,11 @@ input {
   animation-play-state: paused;
 }
 
+.wtf-partner-carousel-section {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+}
+
 @keyframes wtf-logo-scroll {
   0% {
     transform: translateX(0);
@@ -181,31 +186,41 @@ input {
   color: #f7f1e5 !important;
 }
 
-.wtf-public-app .qr-wave,
+.wtf-public-app .qr-glass-button,
 .wtf-public-app nav .wtf-nav-active {
   background-color: #cf8e16 !important;
 }
 
-.wtf-public-app .qr-wave {
+.wtf-public-app .qr-glass-button {
   background-color: #8b1025 !important;
   color: #f7f1e5 !important;
+}
+
+.qr-glass-button {
+  width: 64px;
+  height: 76px;
+  padding: 0.35rem;
+  border: 4px solid #f7f1e5;
+  border-radius: 30px 30px 10px 10px;
+  clip-path: polygon(12% 0, 88% 0, 78% 50%, 60% 67%, 60% 82%, 82% 82%, 82% 100%, 18% 100%, 18% 82%, 40% 82%, 40% 67%, 22% 50%);
 }
 
 .wtf-public-app nav a:not(.wtf-nav-active) {
   color: #f7f1e5 !important;
 }
 
-.qr-wave::before,
-.qr-wave::after {
+.qr-wave-shell::before,
+.qr-wave-shell::after {
   position: absolute;
-  inset: -0.35rem;
+  inset: 0.1rem 0.35rem 1.35rem;
+  z-index: 0;
   content: "";
   border: 1px solid rgb(161 22 22 / 0.42);
   border-radius: 999px;
   animation: qr-pulse 2.2s ease-out infinite;
 }
 
-.qr-wave::after {
+.qr-wave-shell::after {
   animation-delay: 1.1s;
 }
 

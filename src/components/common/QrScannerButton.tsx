@@ -95,19 +95,19 @@ export function QrScannerButton({ variant = 'default' }: QrScannerButtonProps) {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={handleOpen}
-        className={
-          variant === 'nav'
-            ? 'qr-wave relative -mt-4 flex h-[52px] w-[52px] flex-col items-center justify-center gap-0.5 justify-self-center rounded-full bg-wine-700 text-[10px] font-black uppercase tracking-[0.08em] text-cream-50 shadow-soft ring-4 ring-cream-50'
-            : 'inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-wine-700 px-4 text-sm font-semibold text-white shadow-sm'
-        }
-        aria-label="Scansiona QR Code"
-      >
-        <Camera className={variant === 'nav' ? 'h-5 w-5' : 'h-5 w-5'} aria-hidden="true" />
-        {variant === 'nav' ? 'QR' : 'Scansiona QR Code'}
-      </button>
+      {variant === 'nav' ? (
+        <div className="qr-wave-shell relative -mt-10 flex h-24 w-20 flex-col items-center justify-start justify-self-center">
+          <button type="button" onClick={handleOpen} className="qr-glass-button relative z-10 grid place-items-center text-cream-50 shadow-soft" aria-label="Scansiona QR Code">
+            <Camera className="-mt-2 h-7 w-7" aria-hidden="true" />
+          </button>
+          <span className="relative z-10 mt-0.5 text-[10px] font-black uppercase leading-none tracking-[0.04em] text-cream-50">Scan QR</span>
+        </div>
+      ) : (
+        <button type="button" onClick={handleOpen} className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-wine-700 px-4 text-sm font-semibold text-white shadow-sm" aria-label="Scansiona QR Code">
+          <Camera className="h-5 w-5" aria-hidden="true" />
+          Scansiona QR Code
+        </button>
+      )}
       {scannerOverlay}
     </>
   )

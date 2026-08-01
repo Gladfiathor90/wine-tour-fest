@@ -20,10 +20,16 @@ const quickLinks = [
   { label: 'Privacy', path: publicRoutes.privacy, icon: Shield },
 ]
 
+const widePartnerLogoIds = new Set(['sp-10'])
+const tallPartnerLogoIds = new Set(['sp-3', 'sp-6', 'sp-11'])
+const paddedPartnerLogoIds = new Set(['sp-6'])
+
 export function HomePage() {
   const info = contentService.generalInfo.demo()
+  const partnerLogos = contentService.sponsors.demoList()
   const wineryLogos = contentService.wineries.demoList().filter((winery) => winery.published)
   const oliveMillLogos = contentService.oliveMills.demoList().filter((mill) => mill.published)
+  const partnerCarouselLogos = [...partnerLogos, ...partnerLogos]
   const producerLogos = [
     ...wineryLogos.map((winery) => ({ ...winery, producerType: 'winery' as const })),
     ...oliveMillLogos.map((mill) => ({ ...mill, producerType: 'oliveMill' as const })),
@@ -48,7 +54,29 @@ export function HomePage() {
         </p>
       </section>
 
-      <section className="grid grid-cols-2 gap-3">
+      <section className="wtf-partner-carousel-section overflow-hidden rounded-lg border border-stone-200 bg-[#f6f2e8] py-4 shadow-sm">
+        <div className="wtf-logo-carousel flex w-max items-center gap-8 px-6">
+          {partnerCarouselLogos.map((partner, index) => {
+            const isWide = widePartnerLogoIds.has(partner.id)
+            const isTall = tallPartnerLogoIds.has(partner.id)
+            const isPadded = paddedPartnerLogoIds.has(partner.id)
+
+            return (
+              <div key={`${partner.id}-${index}`} className={`grid h-36 shrink-0 place-items-center rounded-md bg-[#f6f2e8] ${isWide ? 'w-96 px-6' : isPadded ? 'w-56 px-6' : 'w-52 px-4'}`}>
+                <img
+                  src={partner.logoUrl}
+                  alt={`Logo ${partner.name}`}
+                  className={`max-w-full object-contain ${isWide ? 'max-h-24' : isPadded ? 'max-h-24' : isTall ? 'max-h-32' : 'max-h-24'}`}
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      <section id="home-actions" className="scroll-mt-5 grid grid-cols-2 gap-3">
         {quickLinks.map((item) => (
           <Link key={`${item.label}-${item.path}`} to={item.path} className="flex aspect-[1.12] flex-col items-center justify-center gap-7 rounded-lg border border-stone-200 bg-[#f6f2e8] p-4 text-center shadow-sm">
             <item.icon className="h-9 w-9 text-wine-700" strokeWidth={2.4} aria-hidden="true" />

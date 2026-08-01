@@ -92,6 +92,7 @@ export type Sponsor = {
   id: string
   name: string
   logoUrl: string
+  description?: string
   website?: string
   level: SponsorLevel
   displayOrder: number
