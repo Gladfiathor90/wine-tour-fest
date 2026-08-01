@@ -684,21 +684,21 @@ export const newsItems: NewsItem[] = [
 ]
 
 export const sponsors: Sponsor[] = [
-  { id: 'sp-1', name: 'Comune di Lizzano', logoUrl: '/logos/partners/comune-lizzano.png', description: 'Ente promotore e riferimento istituzionale del territorio ospitante.', level: 'Patrocini', displayOrder: 1, active: true },
-  { id: 'sp-2', name: 'Regione Puglia', logoUrl: '/logos/partners/regione-puglia.png', description: 'Sostegno istituzionale alla valorizzazione culturale e produttiva pugliese.', level: 'Patrocini', displayOrder: 2, active: true },
-  { id: 'sp-3', name: 'Provincia di Taranto', logoUrl: '/logos/partners/provincia-taranto.png', description: 'Partner istituzionale per la promozione dell’area ionica.', level: 'Patrocini', displayOrder: 3, active: true },
-  { id: 'sp-4', name: 'ANCI', logoUrl: '/logos/partners/anci.png', description: 'Rete dei comuni a supporto delle iniziative locali.', level: 'Patrocini', displayOrder: 4, active: true },
-  { id: 'sp-5', name: 'Prodotti di Qualità Puglia', logoUrl: '/logos/partners/prodotti-qualita-puglia.png', description: 'Marchio regionale dedicato alle eccellenze agroalimentari certificate.', level: 'Main sponsor', displayOrder: 5, active: true },
-  { id: 'sp-6', name: 'Pro Loco Lizzano', logoUrl: '/logos/partners/pro-loco-lizzano.png', description: 'Presidio locale per accoglienza, tradizioni e promozione del paese.', level: 'Partner', displayOrder: 6, active: true },
-  { id: 'sp-7', name: 'Cantine Lizzano', logoUrl: '/logos/partners/cantine-lizzano.png', description: 'Storica realta cooperativa del territorio e protagonista del racconto vitivinicolo.', level: 'Partner', displayOrder: 7, active: true },
-  { id: 'sp-8', name: 'IPSS EOA Mediterraneo', logoUrl: '/logos/partners/ipss-eoa-mediterraneo.png', description: 'Istituto alberghiero partner per cultura dell’accoglienza e ristorazione.', level: 'Partner', displayOrder: 8, active: true },
-  { id: 'sp-9', name: 'AIS Puglia Taranto', logoUrl: '/logos/partners/ais-puglia-taranto.png', description: 'Delegazione territoriale dedicata alla cultura del vino e del servizio.', level: 'Associazioni', displayOrder: 9, active: true },
-  { id: 'sp-10', name: 'Confcommercio Taranto', logoUrl: '/logos/partners/confcommercio-taranto.png', description: 'Rappresentanza delle imprese e delle attivita commerciali del territorio.', level: 'Associazioni', displayOrder: 10, active: true },
-  { id: 'sp-11', name: 'Coldiretti Taranto', logoUrl: '/logos/partners/coldiretti-taranto.png', description: 'Organizzazione agricola a tutela delle filiere e dei produttori locali.', level: 'Associazioni', displayOrder: 11, active: true },
-  { id: 'sp-12', name: 'Slow Food Manduria - Terre del Primitivo', logoUrl: '/logos/partners/slow-food-manduria.png', description: 'Comunità del gusto impegnata nella difesa delle produzioni buone e locali.', level: 'Associazioni', displayOrder: 12, active: true },
-  { id: 'sp-13', name: 'Città del Vino', logoUrl: '/logos/partners/citta-del-vino.svg', description: 'Rete nazionale dei territori legati alla cultura del vino.', level: 'Associazioni', displayOrder: 13, active: true },
-  { id: 'sp-14', name: 'Consorzio di Tutela Primitivo di Manduria DOC e DOCG', logoUrl: '/logos/partners/consorzio-primitivo-manduria.png', description: 'Tutela e promozione della denominazione Primitivo di Manduria.', level: 'Associazioni', displayOrder: 14, active: true },
-  { id: 'sp-15', name: 'G.A.L. Terre del Primitivo', logoUrl: '/logos/partners/gal-terre-del-primitivo.png', description: 'Agenzia territoriale per sviluppo rurale, identita e progettazione locale.', level: 'Associazioni', displayOrder: 15, active: true },
+  { id: 'sp-2', name: 'Regione Puglia', logoUrl: '/logos/partners/regione-puglia.png', description: 'Sostegno istituzionale alla valorizzazione culturale e produttiva pugliese.', level: 'Patrocini', displayOrder: 1, active: true },
+  { id: 'sp-3', name: 'Provincia di Taranto', logoUrl: '/logos/partners/provincia-taranto.png', description: 'Partner istituzionale per la promozione dell’area ionica.', level: 'Patrocini', displayOrder: 2, active: true },
+  { id: 'sp-1', name: 'Comune di Lizzano', logoUrl: '/logos/partners/comune-lizzano.png', description: 'Ente promotore e riferimento istituzionale del territorio ospitante.', level: 'Patrocini', displayOrder: 3, active: true },
+  { id: 'sp-10', name: 'Confcommercio Taranto', logoUrl: '/logos/partners/confcommercio-taranto.png', description: 'Rappresentanza delle imprese e delle attivita commerciali del territorio.', level: 'Associazioni', displayOrder: 4, active: true },
+  { id: 'sp-11', name: 'Coldiretti Taranto', logoUrl: '/logos/partners/coldiretti-taranto.png', description: 'Organizzazione agricola a tutela delle filiere e dei produttori locali.', level: 'Associazioni', displayOrder: 5, active: true },
+  { id: 'sp-15', name: 'G.A.L. Terre del Primitivo', logoUrl: '/logos/partners/gal-terre-del-primitivo.png', description: 'Agenzia territoriale per sviluppo rurale, identita e progettazione locale.', level: 'Associazioni', displayOrder: 6, active: true },
+  { id: 'sp-4', name: 'ANCI', logoUrl: '/logos/partners/anci.png', description: 'Rete dei comuni a supporto delle iniziative locali.', level: 'Patrocini', displayOrder: 7, active: true },
+  { id: 'sp-5', name: 'Prodotti di Qualità Puglia', logoUrl: '/logos/partners/prodotti-qualita-puglia.png', description: 'Marchio regionale dedicato alle eccellenze agroalimentari certificate.', level: 'Main sponsor', displayOrder: 8, active: true },
+  { id: 'sp-6', name: 'Pro Loco Lizzano', logoUrl: '/logos/partners/pro-loco-lizzano.png', description: 'Presidio locale per accoglienza, tradizioni e promozione del paese.', level: 'Partner', displayOrder: 9, active: true },
+  { id: 'sp-7', name: 'Cantine Lizzano', logoUrl: '/logos/partners/cantine-lizzano.png', description: 'Storica realta cooperativa del territorio e protagonista del racconto vitivinicolo.', level: 'Partner', displayOrder: 10, active: true },
+  { id: 'sp-8', name: 'IPSS EOA Mediterraneo', logoUrl: '/logos/partners/ipss-eoa-mediterraneo.png', description: 'Istituto alberghiero partner per cultura dell’accoglienza e ristorazione.', level: 'Partner', displayOrder: 11, active: true },
+  { id: 'sp-9', name: 'AIS Puglia Taranto', logoUrl: '/logos/partners/ais-puglia-taranto.png', description: 'Delegazione territoriale dedicata alla cultura del vino e del servizio.', level: 'Associazioni', displayOrder: 12, active: true },
+  { id: 'sp-12', name: 'Slow Food Manduria - Terre del Primitivo', logoUrl: '/logos/partners/slow-food-manduria.png', description: 'Comunità del gusto impegnata nella difesa delle produzioni buone e locali.', level: 'Associazioni', displayOrder: 13, active: true },
+  { id: 'sp-13', name: 'Città del Vino', logoUrl: '/logos/partners/citta-del-vino.svg', description: 'Rete nazionale dei territori legati alla cultura del vino.', level: 'Associazioni', displayOrder: 14, active: true },
+  { id: 'sp-14', name: 'Consorzio di Tutela Primitivo di Manduria DOC e DOCG', logoUrl: '/logos/partners/consorzio-primitivo-manduria.png', description: 'Tutela e promozione della denominazione Primitivo di Manduria.', level: 'Associazioni', displayOrder: 15, active: true },
 ]
 
 export const mapPoints: MapPoint[] = [

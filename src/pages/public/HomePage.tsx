@@ -21,7 +21,7 @@ const quickLinks = [
 ]
 
 const widePartnerLogoIds = new Set(['sp-10'])
-const tallPartnerLogoIds = new Set(['sp-3', 'sp-6', 'sp-11'])
+const tallPartnerLogoIds = new Set(['sp-1', 'sp-3', 'sp-6', 'sp-11'])
 const paddedPartnerLogoIds = new Set(['sp-6'])
 
 export function HomePage() {
