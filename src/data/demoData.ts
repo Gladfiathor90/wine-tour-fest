@@ -737,7 +737,7 @@ export const newsItems: NewsItem[] = [
     excerpt: 'Il 7 agosto alle ore 10.00, nella Sala Consiliare del Comune di Lizzano, sarà presentata la quarta edizione del Wine Tour Fest.',
     content:
       'Si terrà il 7 agosto 2026 alle ore 10.00, nella Sala Consiliare del Comune di Lizzano, la conferenza stampa di presentazione del Wine Tour Fest 2026. L’evento, giunto alla quarta edizione, si svolgerà l’11, 12 e 13 agosto nel Centro Storico di Lizzano. Il Wine Tour Fest conferma la sua identità legata a qualità, territorio e turismo della tradizione, con percorsi eno-gastronomici, degustazioni di oli EVO, promozione delle aziende locali, vini pregiati, musica, arte e momenti di approfondimento dedicati alla sostenibilità e al turismo esperienziale. Il progetto è realizzato con fondi comunali e con il contributo della Regione Puglia - Dipartimento Agricoltura, Sviluppo Rurale ed Ambientale, con il patrocinio di numerosi enti e partner del territorio.',
-    imageUrl: imageFallbacks.hero,
+    imageUrl: '/images/brand-identity-2026.jpeg',
     publishedAt: '2026-08-01',
     author: 'Comune di Lizzano',
     important: true,

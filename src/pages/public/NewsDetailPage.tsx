@@ -65,7 +65,7 @@ export function NewsDetailPage() {
     <article className="space-y-5">
       <PublicHeader back title="News" onShare={handleShare} />
       {shareMessage ? <p className="rounded-md bg-olive-700 px-3 py-2 text-sm font-semibold text-white">{shareMessage}</p> : null}
-      <img src={currentItem.imageUrl} alt="" className="h-64 w-full rounded-lg object-cover" />
+      <img src={currentItem.imageUrl} alt="" className="h-80 w-full rounded-lg bg-[#f6f2e8] object-contain p-2" />
       <section className="rounded-lg bg-white p-5 shadow-sm">
         <div className="flex items-center justify-between gap-2">
           <p className="text-sm font-semibold text-wine-700">{currentItem.publishedAt}</p>

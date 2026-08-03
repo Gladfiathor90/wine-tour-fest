@@ -9,7 +9,7 @@ type NewsCardProps = {
 export function NewsCard({ item }: NewsCardProps) {
   return (
     <article className="overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm">
-      <img src={item.imageUrl} alt="" className="h-32 w-full object-cover" loading="lazy" />
+      <img src={item.imageUrl} alt="" className="h-40 w-full bg-[#f6f2e8] object-contain p-2" loading="lazy" />
       <div className="p-4">
         <div className="flex items-center justify-between gap-2">
           <p className="text-sm font-medium text-wine-700">{item.publishedAt}</p>
