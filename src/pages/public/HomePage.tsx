@@ -24,6 +24,12 @@ const widePartnerLogoIds = new Set(['sp-10'])
 const tallPartnerLogoIds = new Set(['sp-1', 'sp-3', 'sp-6', 'sp-11'])
 const paddedPartnerLogoIds = new Set(['sp-6'])
 
+function producerLogoClassName(slug: string) {
+  if (slug === 'tenute-emera') return 'wtf-winery-logo-emera'
+  if (slug === 'novecentoventi') return 'wtf-winery-logo-novecentoventi'
+  return ''
+}
+
 export function HomePage() {
   const info = contentService.generalInfo.demo()
   const partnerLogos = contentService.sponsors.demoList()
@@ -93,7 +99,7 @@ export function HomePage() {
               to={producer.producerType === 'winery' ? publicRoutes.wineryDetail(producer.slug) : publicRoutes.oliveMillDetail(producer.slug)}
               className="grid h-20 w-32 shrink-0 place-items-center rounded-md bg-[#f6f2e8] px-3"
             >
-              <img src={producer.logoUrl} alt={`Logo ${producer.name}`} className="max-h-14 max-w-full object-contain" loading="eager" decoding="async" />
+              <img src={producer.logoUrl} alt={`Logo ${producer.name}`} className={`max-h-14 max-w-full object-contain ${producerLogoClassName(producer.slug)}`} loading="eager" decoding="async" />
             </Link>
           ))}
         </div>

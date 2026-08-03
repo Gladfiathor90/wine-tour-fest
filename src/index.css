@@ -141,6 +141,20 @@ input {
   object-position: 50% 31%;
 }
 
+.wtf-liaci-cover {
+  object-position: 50% 24%;
+}
+
+.wtf-winery-logo-emera {
+  filter: drop-shadow(0 10px 14px rgba(16, 40, 58, 0.34));
+  transform: scale(1.32);
+}
+
+.wtf-winery-logo-novecentoventi {
+  filter: drop-shadow(0 6px 8px rgba(16, 40, 58, 0.18));
+  transform: scale(1.1);
+}
+
 .wtf-logo-carousel {
   animation: wtf-logo-scroll 34s linear infinite;
 }

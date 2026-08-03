@@ -67,6 +67,12 @@ export function WineryDetailPage() {
   ].filter(Boolean)
 
   const currentWinery = winery
+  const coverClassName = winery.slug === 'azienda-vinicola-liaci' ? 'wtf-liaci-cover' : ''
+  const logoClassName = winery.slug === 'tenute-emera'
+    ? 'wtf-winery-logo-emera'
+    : winery.slug === 'novecentoventi'
+      ? 'wtf-winery-logo-novecentoventi'
+      : ''
 
   async function handleShare() {
     setShareMessage(await sharePage(currentWinery.name, currentWinery.shortDescription))
@@ -77,9 +83,9 @@ export function WineryDetailPage() {
       <PublicHeader back title={winery.name} onShare={handleShare} />
       {shareMessage ? <p className="rounded-md bg-olive-700 px-3 py-2 text-sm font-semibold text-white">{shareMessage}</p> : null}
       <section className="overflow-hidden rounded-lg border border-stone-200 bg-cream-50 shadow-sm">
-        <img src={winery.coverImageUrl} alt="" className="h-72 w-full object-cover" />
+        <img src={winery.coverImageUrl} alt="" className={`h-72 w-full object-cover ${coverClassName}`} />
         <div className="space-y-5 p-6 text-center">
-          <img src={winery.logoUrl} alt={`Logo ${winery.name}`} className="mx-auto h-20 max-w-44 object-contain" />
+          <img src={winery.logoUrl} alt={`Logo ${winery.name}`} className={`mx-auto h-20 max-w-44 object-contain ${logoClassName}`} />
           <h1 className="text-3xl font-bold leading-tight text-stone-950">{winery.name}</h1>
           <p className="text-base leading-8 text-stone-600">{winery.description}</p>
         </div>
