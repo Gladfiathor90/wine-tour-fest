@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { EmptyState } from '../../components/common/EmptyState'
 import { PublicHeader } from '../../components/common/PublicHeader'
-import { QrCodeBox } from '../../components/common/QrCodeBox'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { contentService } from '../../services/contentService'
 import type { Winery } from '../../types/content'
@@ -67,7 +66,11 @@ export function WineryDetailPage() {
   ].filter(Boolean)
 
   const currentWinery = winery
-  const coverClassName = winery.slug === 'azienda-vinicola-liaci' ? 'wtf-liaci-cover' : ''
+  const coverClassName = winery.slug === 'azienda-vinicola-liaci'
+    ? 'wtf-liaci-cover'
+    : winery.slug === 'fabiana-wines'
+      ? 'wtf-fabiana-cover'
+      : ''
   const logoClassName = winery.slug === 'tenute-emera'
     ? 'wtf-winery-logo-emera'
     : winery.slug === 'novecentoventi'
@@ -106,8 +109,6 @@ export function WineryDetailPage() {
           {winery.gallery.map((image) => <img key={image} src={image} alt="" className="h-40 min-w-[78%] rounded-lg object-cover" loading="lazy" />)}
         </div>
       </section>
-
-      <QrCodeBox url={publicRoutes.wineryCheckIn(winery.slug)} title="QR Code check-in" />
 
       <Link className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-wine-700" to={publicRoutes.wineries}>
         Torna alle cantine

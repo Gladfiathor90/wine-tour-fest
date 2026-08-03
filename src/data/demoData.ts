@@ -33,7 +33,6 @@ export const imageFallbacks = {
   vineyard: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1000&q=80',
   tasting: 'https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&w=1000&q=80',
   music: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1000&q=80',
-  food: 'https://images.unsplash.com/photo-1528498033373-3c6c08e93d79?auto=format&fit=crop&w=1000&q=80',
 }
 
 export const generalInfo: GeneralInfo = {
@@ -160,7 +159,7 @@ export const wineries: Winery[] = [
     coverImageUrl: 'https://www.fabianawines.it/wp-content/uploads/2016/03/fabiana.jpg',
     gallery: [
       'https://www.fabianawines.it/wp-content/uploads/2016/03/fabiana.jpg',
-      'https://www.fabianawines.it/wp-content/uploads/2021/03/fabiana_logo_ocm-300x87.png',
+      'https://www.fabianawines.it/wp-content/uploads/2016/06/chi-siamo01.jpg',
     ],
     featured: true,
     published: true,
@@ -266,7 +265,7 @@ export const wineries: Winery[] = [
     googleMapsUrl: wineryMapsUrl('Via del Gelso 49 Barletta BT'),
     logoUrl: '/logos/wineries/angelo-maffione.png',
     coverImageUrl: imageFallbacks.tasting,
-    gallery: [imageFallbacks.tasting, imageFallbacks.food],
+    gallery: [imageFallbacks.tasting],
     featured: false,
     published: true,
     createdAt: now,
@@ -400,7 +399,6 @@ export const wineries: Winery[] = [
     gallery: [
       'https://cdn.sumup.store/shops/39223616/settings/th1024/d967cbc4-34fa-49e4-bbe8-7ce8574e4d6e.jpeg',
       'https://cdn.sumup.store/shops/39223616/settings/2c0f7ee7-0d04-4645-9e26-7a6f36745c9e.jpeg',
-      imageFallbacks.tasting,
     ],
     featured: false,
     published: true,

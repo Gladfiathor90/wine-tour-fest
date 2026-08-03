@@ -8,7 +8,11 @@ type WineryCardProps = {
 }
 
 export function WineryCard({ winery }: WineryCardProps) {
-  const coverClassName = winery.slug === 'azienda-vinicola-liaci' ? 'wtf-liaci-cover' : ''
+  const coverClassName = winery.slug === 'azienda-vinicola-liaci'
+    ? 'wtf-liaci-cover'
+    : winery.slug === 'fabiana-wines'
+      ? 'wtf-fabiana-cover'
+      : ''
   const logoClassName = winery.slug === 'tenute-emera'
     ? 'wtf-winery-logo-emera'
     : winery.slug === 'novecentoventi'

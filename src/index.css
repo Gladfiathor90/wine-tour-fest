@@ -145,6 +145,10 @@ input {
   object-position: 50% 24%;
 }
 
+.wtf-fabiana-cover {
+  object-position: 50% 23%;
+}
+
 .wtf-winery-logo-emera {
   filter: drop-shadow(0 10px 14px rgba(16, 40, 58, 0.34));
   transform: scale(1.32);
@@ -326,8 +330,58 @@ input {
 }
 
 .falling-item-brokenBottle {
-  animation-name: falling-float, danger-pulse;
-  animation-duration: 900ms, 700ms;
+  animation-name: falling-float, bomb-bob;
+  animation-duration: 900ms, 820ms;
+}
+
+.game-bomb {
+  position: relative;
+  display: block;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 3px solid rgb(247 241 229 / 0.9);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 26%, rgb(255 255 255 / 0.74) 0 0.28rem, transparent 0.32rem),
+    radial-gradient(circle at 68% 72%, #3d1219 0, #12080b 58%, #080507 100%);
+  box-shadow:
+    inset -0.4rem -0.45rem 0 rgb(0 0 0 / 0.22),
+    0 0.35rem 0.8rem rgb(100 11 11 / 0.24);
+}
+
+.game-bomb::before {
+  position: absolute;
+  top: -0.18rem;
+  right: 0.28rem;
+  width: 0.72rem;
+  height: 0.48rem;
+  content: "";
+  border-radius: 0.22rem;
+  background: linear-gradient(180deg, #d6a041, #8b1025);
+  rotate: 28deg;
+}
+
+.game-bomb-fuse {
+  position: absolute;
+  top: -0.75rem;
+  right: -0.02rem;
+  width: 1.05rem;
+  height: 0.7rem;
+  border-top: 3px solid #10283a;
+  border-right: 3px solid #10283a;
+  border-radius: 0 0.85rem 0 0;
+  rotate: 12deg;
+}
+
+.game-bomb-spark {
+  position: absolute;
+  top: -0.96rem;
+  right: -0.32rem;
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff7b8 0 20%, #d6a041 22% 45%, #a11616 48% 68%, transparent 70%);
+  animation: bomb-spark 520ms steps(2, end) infinite;
 }
 
 @keyframes glass-sway {
@@ -428,14 +482,26 @@ input {
   }
 }
 
-@keyframes danger-pulse {
+@keyframes bomb-bob {
   0%,
   100% {
     scale: 1;
-    opacity: 1;
+    rotate: -7deg;
   }
   50% {
-    scale: 1.18;
-    opacity: 0.78;
+    scale: 1.1;
+    rotate: 8deg;
+  }
+}
+
+@keyframes bomb-spark {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(0.86) rotate(0deg);
+  }
+  50% {
+    opacity: 0.62;
+    transform: scale(1.18) rotate(25deg);
   }
 }

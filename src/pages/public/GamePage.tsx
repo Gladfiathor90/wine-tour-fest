@@ -23,7 +23,19 @@ const icons = {
   glass: '🍷',
   grape: '🍇',
   cheese: '🧀',
-  brokenBottle: '✖',
+}
+
+function renderFallingItem(kind: FallingItem['kind']) {
+  if (kind === 'brokenBottle') {
+    return (
+      <span className="game-bomb" aria-label="Bomba">
+        <span className="game-bomb-fuse" />
+        <span className="game-bomb-spark" />
+      </span>
+    )
+  }
+
+  return icons[kind]
 }
 
 const prizeKey = 'wtf-prize-code'
@@ -203,7 +215,7 @@ export function GamePage() {
         <div className="absolute right-3 top-14 z-10 rounded-md bg-cream-50/85 px-2 py-1 text-xs font-bold text-wine-700 shadow-sm">{timeLeft}s</div>
         {items.map((item) => (
           <div key={item.id} className={`falling-item falling-item-${item.kind} absolute text-[2.55rem] leading-none drop-shadow-md`} style={{ left: `${item.x}%`, top: `${item.y}%`, transform: 'translate(-50%, -50%)' }}>
-            {icons[item.kind]}
+            {renderFallingItem(item.kind)}
           </div>
         ))}
         {catchEffects.map((effect) => (
