@@ -159,6 +159,28 @@ input {
   transform: scale(1.1);
 }
 
+.wtf-carousel-logo-consorzio {
+  transform: scale(1.15);
+}
+
+.wtf-carousel-logo-maffione {
+  transform: scale(1.25);
+}
+
+.wtf-carousel-logo-fabiana {
+  transform: scale(1.08);
+}
+
+.wtf-carousel-logo-emera {
+  filter: drop-shadow(0 12px 18px rgba(16, 40, 58, 0.46));
+  transform: scale(1.45);
+}
+
+.wtf-carousel-logo-novecentoventi {
+  filter: drop-shadow(0 8px 12px rgba(16, 40, 58, 0.3));
+  transform: scale(1.2);
+}
+
 .wtf-logo-carousel {
   animation: wtf-logo-scroll 34s linear infinite;
 }
@@ -170,6 +192,16 @@ input {
 .wtf-partner-carousel-section {
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+}
+
+.wtf-leaflet-map {
+  z-index: 0;
+}
+
+.wtf-leaflet-map .leaflet-pane,
+.wtf-leaflet-map .leaflet-top,
+.wtf-leaflet-map .leaflet-bottom {
+  z-index: 1;
 }
 
 @keyframes wtf-logo-scroll {

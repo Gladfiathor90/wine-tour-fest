@@ -70,7 +70,7 @@ export function WineryCheckInPage() {
       <PublicHeader back title="Check-in" />
       <section className="rounded-lg bg-white p-5 text-center shadow-sm">
         {status === 'created' ? <CheckCircle2 className="mx-auto h-14 w-14 text-olive-700" /> : <Clock className="mx-auto h-14 w-14 text-wine-700" />}
-        <h1 className="mt-4 text-3xl font-bold text-stone-950">{status === 'created' ? 'Visita registrata' : 'Check-in già registrato'}</h1>
+        <h1 className="mt-4 text-3xl font-bold leading-tight text-stone-950">{status === 'created' ? 'Visita registrata' : 'Check-in già registrato'}</h1>
         <p className="mt-3 text-base leading-7 text-stone-600">
           {status === 'created'
             ? `Grazie per la visita a ${winery.name}.`

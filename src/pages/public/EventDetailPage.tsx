@@ -79,7 +79,7 @@ export function EventDetailPage() {
       {currentEvent.imageUrl ? <img src={currentEvent.imageUrl} alt="" className="h-64 w-full rounded-lg object-cover" /> : null}
       <section className="rounded-lg bg-white p-5 shadow-sm">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-wine-700">{currentEvent.category}</p>
-        <h1 className="mt-2 text-3xl font-bold text-stone-950">{currentEvent.title}</h1>
+        <h1 className="mt-2 text-3xl font-bold leading-tight text-stone-950">{currentEvent.title}</h1>
         <p className="mt-3 text-base leading-7 text-stone-600">{currentEvent.description}</p>
       </section>
       <section className="grid gap-3">

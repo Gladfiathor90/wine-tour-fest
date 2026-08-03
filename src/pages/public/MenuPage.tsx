@@ -22,7 +22,7 @@ export function MenuPage() {
   return (
     <div className="space-y-5">
       <PublicHeader title="Menu" />
-      <h1 className="text-3xl font-bold text-stone-950">Menu</h1>
+      <h1 className="text-3xl font-bold leading-tight text-stone-950">Menu</h1>
       <QrScannerButton />
       <div className="grid grid-cols-2 gap-3">
         {items.map((item) => (

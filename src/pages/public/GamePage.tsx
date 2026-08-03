@@ -195,7 +195,7 @@ export function GamePage() {
     <div className="space-y-3">
       <PublicHeader back title="Gioca" />
       <section className="rounded-lg bg-wine-700 p-3 text-cream-50 shadow-sm">
-        <h1 className="text-2xl font-bold">Acchiappa il Calice</h1>
+        <h1 className="text-3xl font-bold leading-tight">Acchiappa il Calice</h1>
         <p className="mt-2 rounded-md bg-cream-50/10 px-3 py-2 text-sm">Soglia premio: {settings.prizeThreshold} punti · Record: {record}</p>
       </section>
 

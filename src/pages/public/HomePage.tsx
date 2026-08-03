@@ -25,8 +25,11 @@ const tallPartnerLogoIds = new Set(['sp-1', 'sp-3', 'sp-6', 'sp-11'])
 const paddedPartnerLogoIds = new Set(['sp-6'])
 
 function producerLogoClassName(slug: string) {
-  if (slug === 'tenute-emera') return 'wtf-winery-logo-emera'
-  if (slug === 'novecentoventi') return 'wtf-winery-logo-novecentoventi'
+  if (slug === 'consorzio-tutela-primitivo-di-manduria-doc-docg') return 'wtf-carousel-logo-consorzio'
+  if (slug === 'angelo-maffione-vini') return 'wtf-carousel-logo-maffione'
+  if (slug === 'fabiana-wines') return 'wtf-carousel-logo-fabiana'
+  if (slug === 'tenute-emera') return 'wtf-carousel-logo-emera'
+  if (slug === 'novecentoventi') return 'wtf-carousel-logo-novecentoventi'
   return ''
 }
 

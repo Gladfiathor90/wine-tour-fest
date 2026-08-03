@@ -18,7 +18,7 @@ export function GastronomyPage() {
       <section className="rounded-lg border border-wine-900/10 bg-[#f6f2e8] px-5 py-7 text-center shadow-sm">
         <Utensils className="mx-auto h-8 w-8 text-wine-700" aria-hidden="true" />
         <p className="mt-5 text-sm font-black uppercase tracking-[0.2em] text-gold-700">Gastronomia</p>
-        <h1 className="mt-2 text-4xl font-black uppercase leading-tight text-wine-900">Menù del giorno</h1>
+        <h1 className="mt-2 text-3xl font-bold leading-tight text-stone-950">Menù del giorno</h1>
         <p className="mx-auto mt-5 max-w-72 text-lg font-semibold leading-7 text-olive-700">
           Sapori della tradizione pugliese, serviti nel cuore del Wine Tour Fest.
         </p>

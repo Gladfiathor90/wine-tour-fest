@@ -101,7 +101,7 @@ export function EventsPage() {
       <PublicHeader title="Programma" />
       <section className="overflow-hidden rounded-lg border border-wine-900/10 bg-cream-50 p-4 shadow-sm">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-wine-700">Wine Tour Fest</p>
-        <h1 className="mt-2 text-3xl font-black uppercase leading-none text-wine-900">Programma eventi</h1>
+        <h1 className="mt-2 text-3xl font-bold leading-tight text-stone-950">Programma eventi</h1>
         <p className="mx-auto mt-3 max-w-64 text-lg font-black uppercase leading-none text-gold-600">Agosto 2026</p>
       </section>
 

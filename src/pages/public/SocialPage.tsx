@@ -43,7 +43,7 @@ export function SocialPage() {
 
       <section className="rounded-lg border border-wine-900/10 bg-[#f6f2e8] px-5 py-8 text-center shadow-sm">
         <p className="text-sm font-black uppercase tracking-[0.2em] text-gold-700">Wine Tour Fest</p>
-        <h1 className="mt-3 text-5xl font-black uppercase leading-[0.9] text-wine-900">Social</h1>
+        <h1 className="mt-3 text-3xl font-bold leading-tight text-stone-950">Social</h1>
         <p className="mx-auto mt-5 max-w-72 text-lg font-semibold leading-7 text-olive-700">
           Seguici sui canali ufficiali per aggiornamenti, foto e momenti del festival.
         </p>

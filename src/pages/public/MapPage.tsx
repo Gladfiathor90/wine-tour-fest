@@ -51,13 +51,13 @@ export function MapPage() {
           </button>
         ))}
       </div>
-      <div className="h-[62svh] min-h-[420px] overflow-hidden rounded-lg border border-stone-200 shadow-sm">
-        <MapContainer center={mainStageCenter} zoom={19} maxZoom={19} scrollWheelZoom={false} className="h-full w-full">
+      <div className="relative z-0 mb-24 h-[62svh] min-h-[420px] overflow-hidden rounded-lg border border-stone-200 shadow-sm">
+        <MapContainer center={mainStageCenter} zoom={19} maxZoom={19} scrollWheelZoom={false} className="wtf-leaflet-map h-full w-full">
           <TileLayer attribution='&copy; OpenStreetMap contributors' maxZoom={19} url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {visiblePoints.map((point) => {
             const linkedWinery = wineries.find((winery) => winery.id === point.wineryId)
             return (
-              <CircleMarker key={point.id} center={[point.latitude, point.longitude]} radius={9} pathOptions={{ color: point.category === 'winery' ? '#8b1e3f' : '#5f6f3f', fillOpacity: 0.9 }}>
+              <CircleMarker key={point.id} center={[point.latitude, point.longitude]} radius={14} pathOptions={{ color: point.category === 'winery' ? '#8b1e3f' : '#5f6f3f', fillOpacity: 0.9 }}>
                 <Popup>
                   <div className="space-y-2">
                     <strong>{point.name}</strong>
