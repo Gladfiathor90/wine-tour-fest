@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Web App ufficiale Wine Tour Fest</title>
+  <desc id="desc">Illustrazione editoriale della guida digitale del Wine Tour Fest.</desc>
+  <rect width="1200" height="760" fill="#f6f2e8"/>
+  <circle cx="990" cy="118" r="150" fill="#d49a1d" opacity=".18"/>
+  <circle cx="104" cy="654" r="184" fill="#8b1025" opacity=".1"/>
+  <path d="M0 536c138-76 267-54 394 31 121 80 237 90 348 31 116-62 221-56 315 17 60 47 108 70 143 68v77H0z" fill="#10283a" opacity=".08"/>
+  <g transform="translate(188 88)">
+    <rect x="164" y="0" width="496" height="596" rx="56" fill="#10283a"/>
+    <rect x="190" y="32" width="444" height="532" rx="38" fill="#fffaf0"/>
+    <rect x="312" y="52" width="200" height="10" rx="5" fill="#f6f2e8"/>
+    <g transform="translate(255 94)">
+      <path d="M151 4c-34 40-43 77-27 112 18 40 63 58 105 41 43-17 65-58 56-106-23 48-73 64-134-47z" fill="#8b1025"/>
+      <path d="M151 4c-40 45-52 83-36 118 20 47 76 68 124 43 34-18 54-56 46-114-16 53-70 80-134-47z" fill="none" stroke="#10283a" stroke-width="8" stroke-linecap="round"/>
+      <text x="86" y="244" fill="#10283a" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-style="italic">Wine</text>
+      <text x="81" y="312" fill="#d49a1d" font-family="Arial, Helvetica, sans-serif" font-size="72" letter-spacing="4">TOUR</text>
+      <text x="80" y="381" fill="#8b1025" font-family="Arial, Helvetica, sans-serif" font-size="72" letter-spacing="3">FEST</text>
+    </g>
+    <g transform="translate(244 486)">
+      <rect x="0" y="0" width="340" height="48" rx="10" fill="#8b1025"/>
+      <text x="170" y="32" text-anchor="middle" fill="#fffaf0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="2">GUIDA DIGITALE</text>
+    </g>
+  </g>
+  <g transform="translate(802 238)">
+    <rect x="0" y="0" width="224" height="224" rx="28" fill="#fffaf0" stroke="#10283a" stroke-width="10"/>
+    <g fill="#10283a">
+      <rect x="34" y="34" width="48" height="48" rx="8"/>
+      <rect x="142" y="34" width="48" height="48" rx="8"/>
+      <rect x="34" y="142" width="48" height="48" rx="8"/>
+      <rect x="100" y="100" width="24" height="24" rx="5"/>
+      <rect x="142" y="104" width="48" height="18" rx="5"/>
+      <rect x="104" y="146" width="22" height="44" rx="5"/>
+      <rect x="146" y="148" width="18" height="18" rx="4"/>
+      <rect x="172" y="172" width="18" height="18" rx="4"/>
+    </g>
+    <path d="M112 260c48-24 96-24 144 0" fill="none" stroke="#d49a1d" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(96 104)">
+    <text x="0" y="0" fill="#8b1025" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" letter-spacing="4">NEWS</text>
+    <text x="0" y="72" fill="#10283a" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="900">Web App</text>
+    <text x="0" y="140" fill="#10283a" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="900">ufficiale</text>
+    <text x="0" y="198" fill="#5f6f3f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Wine Tour Fest 2026</text>
+  </g>
+</svg>

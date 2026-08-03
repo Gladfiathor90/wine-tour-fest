@@ -715,6 +715,22 @@ export const events: FestivalEvent[] = [
 
 export const newsItems: NewsItem[] = [
   {
+    id: 'news-web-app-ufficiale',
+    title: 'Nasce la Web App ufficiale del Wine Tour Fest',
+    slug: 'nasce-la-web-app-ufficiale-del-wine-tour-fest',
+    excerpt:
+      'Il Wine Tour Fest diventa ancora più semplice da vivere grazie alla nuova Web App ufficiale, la guida digitale pensata per accompagnarti durante tutto l’evento.',
+    content:
+      'Il Wine Tour Fest diventa ancora più semplice da vivere grazie alla nuova Web App ufficiale, la guida digitale pensata per accompagnarti durante tutto l’evento.\n\nCon pochi tocchi potrai consultare il programma aggiornato, scoprire le cantine partecipanti, trovare informazioni utili, leggere le ultime news e orientarti tra le varie esperienze del festival direttamente dal tuo smartphone, senza dover installare alcuna applicazione.\n\nTi basterà scansionare il QR Code presente nei punti informativi o accedere al sito per avere sempre il Wine Tour Fest a portata di mano.\n\nBenvenuto nella tua nuova guida digitale: il modo più semplice per vivere ogni momento del Wine Tour Fest.',
+    imageUrl: '/images/news/web-app-ufficiale.svg',
+    publishedAt: '2026-08-03',
+    author: 'Wine Tour Fest',
+    important: true,
+    published: true,
+    createdAt: '2026-08-03T10:00:00.000Z',
+    updatedAt: '2026-08-03T10:00:00.000Z',
+  },
+  {
     id: 'news-1',
     title: 'Conferenza stampa di presentazione Wine Tour Fest 2026',
     slug: 'conferenza-stampa-presentazione-wine-tour-fest-2026',

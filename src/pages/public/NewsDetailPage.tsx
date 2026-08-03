@@ -73,7 +73,7 @@ export function NewsDetailPage() {
         </div>
         <h1 className="mt-3 text-3xl font-bold text-stone-950">{currentItem.title}</h1>
         <p className="mt-2 text-sm text-stone-500">Di {currentItem.author}</p>
-        <p className="mt-5 text-base leading-7 text-stone-700">{currentItem.content}</p>
+        <p className="mt-5 whitespace-pre-line text-base leading-7 text-stone-700">{currentItem.content}</p>
       </section>
     </article>
   )
