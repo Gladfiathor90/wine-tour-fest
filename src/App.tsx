@@ -11,6 +11,7 @@ import { AdminQrPage } from './pages/admin/AdminQrPage'
 import { AdminSectionPage } from './pages/admin/AdminSectionPage'
 import { AdminSponsorsPage } from './pages/admin/AdminSponsorsPage'
 import { AdminWineriesPage } from './pages/admin/AdminWineriesPage'
+import { ContactsPage } from './pages/public/ContactsPage'
 import { EventDetailPage } from './pages/public/EventDetailPage'
 import { EventsPage } from './pages/public/EventsPage'
 import { GamePage } from './pages/public/GamePage'
@@ -54,6 +55,7 @@ const router = createBrowserRouter([
       { path: publicRoutes.gastronomy, element: <GastronomyPage /> },
       { path: publicRoutes.game, element: <GamePage /> },
       { path: publicRoutes.social, element: <SocialPage /> },
+      { path: publicRoutes.contacts, element: <ContactsPage /> },
       { path: publicRoutes.menu, element: <MenuPage /> },
       { path: publicRoutes.privacy, element: <PrivacyPage /> },
       { path: '*', element: <NotFoundPage /> },

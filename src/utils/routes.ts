@@ -13,7 +13,7 @@ export const publicRoutes = {
   info: '/informazioni',
   sponsors: '/sponsor',
   partners: '/partners',
-  contacts: '/informazioni#contatti',
+  contacts: '/contatti',
   gastronomy: '/gastronomia',
   game: '/gioca',
   social: '/social',
